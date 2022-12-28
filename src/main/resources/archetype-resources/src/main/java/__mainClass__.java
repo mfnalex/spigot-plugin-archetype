@@ -1,7 +1,12 @@
-package $org.example;
+package ${package};
 
-public class MyPlugin extends JavaPlugin {
-    public static void main(String[] args) {
+import org.bukkit.plugin.java.JavaPlugin;
+
+public class ${mainClass} extends JavaPlugin {
+
+    @Override
+    public void onEnable() {
 
     }
+
 }

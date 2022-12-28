@@ -1,0 +1,5 @@
+name: ${pluginName}
+author: ${author}
+version: ${project.version}
+main: ${package}.${mainClass}
+api-version: "1.13"

@@ -1,0 +1,57 @@
+<archetype-descriptor
+        name="spigot-plugin">
+    <requiredProperties>
+
+        <requiredProperty key="pluginName">
+            <defaultValue>MyPlugin</defaultValue>
+        </requiredProperty>
+
+        <requiredProperty key="groupId">
+            <defaultValue>my.groupid</defaultValue>
+        </requiredProperty>
+
+        <requiredProperty key="author">
+                <defaultValue>me</defaultValue>
+        </requiredProperty>
+
+        <requiredProperty key="spigotVersion">
+            <defaultValue>1.19.3</defaultValue>
+        </requiredProperty>
+
+        <requiredProperty key="package">
+            <defaultValue>me.someone.myplugin</defaultValue>
+        </requiredProperty>
+
+        <requiredProperty key="mainClass">
+                <defaultValue>MyPlugin</defaultValue>
+        </requiredProperty>
+
+        <requiredProperty key="javaVersion">
+            <defaultValue>8</defaultValue>
+        </requiredProperty>
+
+        <requiredProperty key="useNms">
+            <defaultValue>false</defaultValue>
+        </requiredProperty>
+
+        <requiredProperty key="useJeffLib">
+            <defaultValue>false</defaultValue>
+        </requiredProperty>
+
+    </requiredProperties>
+
+    <fileSets>
+        <fileSet encoding="UTF-8" filtered="true" packaged="true">
+            <directory>src/main/java</directory>
+            <includes>
+                <include>**/*</include>
+            </includes>
+        </fileSet>
+        <fileSet encoding="UTF-8" filtered="true">
+            <directory>src/main/resources</directory>
+            <includes>
+                <include>**/*</include>
+            </includes>
+        </fileSet>
+    </fileSets>
+</archetype-descriptor>
