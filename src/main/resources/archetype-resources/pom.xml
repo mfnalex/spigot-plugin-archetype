@@ -3,23 +3,16 @@
 #set ($remapped = false)
 #set ($majorVersion = $spigotVersion.split('\.')[0])
 #set ($minorVersion = $spigotVersion.split('\.')[1])
-
 #if ($useNms)
     #set ($remapped = true)
 #end
-
 #if ($useNms == "true" && $minorVersion<= 16)
     #set ($remapped = false)
 #end
-
 #set ($addJeffMediaRepo = "false")
 #if ($useJeffLib == "true")
     #set ($addJeffMediaRepo = "true")
 #end
-<!--
-spigotVersion: $spigotVersion
-nmsVersion: $nmsVersion
--->
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>${groupId}</groupId>
@@ -30,8 +23,10 @@ nmsVersion: $nmsVersion
     <name>${pluginName}</name>
 
     <properties>
-        <maven.compiler.source>${javaVersion}</maven.compiler.source>
-        <maven.compiler.target>${javaVersion}</maven.compiler.target>
+        <spigot.version>${spigotVersion}</spigot.version>
+        <java.version>${javaVersion}</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -53,7 +48,7 @@ nmsVersion: $nmsVersion
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>${spigotVersion}-R0.1-SNAPSHOT</version>
+            <version>${spigot.version}-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
 #else
@@ -61,7 +56,7 @@ nmsVersion: $nmsVersion
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot</artifactId>
-            <version>${spigotVersion}-R0.1-SNAPSHOT</version>
+            <version>${spigot.version}-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
             <classifier>remapped-mojang</classifier>
         </dependency>
@@ -69,7 +64,7 @@ nmsVersion: $nmsVersion
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot</artifactId>
-            <version>${spigotVersion}-R0.1-SNAPSHOT</version>
+            <version>${spigot.version}-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
 #end
@@ -138,9 +133,9 @@ nmsVersion: $nmsVersion
                         </goals>
                         <id>remap-obf</id>
                         <configuration>
-                            <srgIn>org.spigotmc:minecraft-server:${spigotVersion}-R0.1-SNAPSHOT:txt:maps-mojang</srgIn>
+                            <srgIn>org.spigotmc:minecraft-server:${spigot.version}-R0.1-SNAPSHOT:txt:maps-mojang</srgIn>
                             <reverse>true</reverse>
-                            <remappedDependencies>org.spigotmc:spigot:${spigotVersion}-R0.1-SNAPSHOT:jar:remapped-mojang</remappedDependencies>
+                            <remappedDependencies>org.spigotmc:spigot:${spigot.version}-R0.1-SNAPSHOT:jar:remapped-mojang</remappedDependencies>
                             <remappedArtifactAttached>true</remappedArtifactAttached>
                             <remappedClassifierName>remapped-obf</remappedClassifierName>
                         </configuration>
@@ -153,8 +148,8 @@ nmsVersion: $nmsVersion
                         <id>remap-spigot</id>
                         <configuration>
                             <inputFile>${project.build.directory}/${project.artifactId}-${project.version}-remapped-obf.jar</inputFile>
-                            <srgIn>org.spigotmc:minecraft-server:${spigotVersion}-R0.1-SNAPSHOT:csrg:maps-spigot</srgIn>
-                            <remappedDependencies>org.spigotmc:spigot:${spigotVersion}-R0.1-SNAPSHOT:jar:remapped-obf</remappedDependencies>
+                            <srgIn>org.spigotmc:minecraft-server:${spigot.version}-R0.1-SNAPSHOT:csrg:maps-spigot</srgIn>
+                            <remappedDependencies>org.spigotmc:spigot:${spigot.version}-R0.1-SNAPSHOT:jar:remapped-obf</remappedDependencies>
                         </configuration>
                     </execution>
                 </executions>
