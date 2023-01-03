@@ -4,14 +4,20 @@
 
         <requiredProperty key="pluginName">
             <defaultValue>MyPlugin</defaultValue>
+            <validationRegex>[a-zA-Z0-9_]+</validationRegex>
         </requiredProperty>
 
         <requiredProperty key="groupId">
             <defaultValue>my.groupid</defaultValue>
+            <validationRegex>([\p{L}_$][\p{L}\p{N}_$]*\.)*[\p{L}_$][\p{L}\p{N}_$]*</validationRegex>
+        </requiredProperty>
+
+        <requiredProperty key="description">
+            <defaultValue/>
         </requiredProperty>
 
         <requiredProperty key="author">
-                <defaultValue>me</defaultValue>
+            <defaultValue>me</defaultValue>
         </requiredProperty>
 
         <requiredProperty key="spigotVersion">
@@ -23,7 +29,8 @@
         </requiredProperty>
 
         <requiredProperty key="mainClass">
-                <defaultValue>MyPlugin</defaultValue>
+            <defaultValue>MyPlugin</defaultValue>
+            <validationRegex>([\p{L}_$][\p{L}\p{N}_$]*\.)*[\p{L}_$][\p{L}\p{N}_$]*</validationRegex>
         </requiredProperty>
 
         <requiredProperty key="javaVersion">
@@ -31,6 +38,10 @@
         </requiredProperty>
 
         <requiredProperty key="useNms">
+            <defaultValue>false</defaultValue>
+        </requiredProperty>
+
+        <requiredProperty key="useJeffLib">
             <defaultValue>false</defaultValue>
         </requiredProperty>
 

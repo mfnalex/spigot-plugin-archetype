@@ -13,6 +13,9 @@
 #if ($useJeffLib == "true")
     #set ($addJeffMediaRepo = "true")
 #end
+#f ($useVault == "true")
+    #set ($addJitpackRepo = "true")
+#end
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>${groupId}</groupId>
@@ -39,6 +42,12 @@
         <repository>
             <id>jeff-media-public</id>
             <url>https://hub.jeff-media.com/nexus/repository/jeff-media-public/</url>
+        </repository>
+#end
+äif ($addJitpackRepo == "true")
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
         </repository>
 #end
     </repositories>
@@ -75,6 +84,14 @@
             <artifactId>JeffLib</artifactId>
             <version>12.0.0</version>
             <scope>compile</scope>
+        </dependency>
+#end
+#if ($useVault == "true")
+        <dependency>
+            <groupId>com.github.MilkBowl</groupId>
+            <artifactId>VaultAPI</artifactId>
+            <version>1.7</version>
+            <scope>provided</scope>
         </dependency>
 #end
     </dependencies>
