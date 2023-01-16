@@ -28,6 +28,18 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-archetype-plugin</artifactId>
                     <version>3.2.1</version>
+                    <configuration>
+                        <useDefaultExcludes>false</useDefaultExcludes>
+                        <askForDefaultPropertyValues>true</askForDefaultPropertyValues>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>3.3.0</version>
+                    <configuration>
+                        <addDefaultExcludes>false</addDefaultExcludes>
+                    </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>

@@ -38,14 +38,14 @@ You can also automatically add the following dependencies. Allowed values are `t
 
 | Option                        | Dependency              | Scope       | Description                                                   |
 |-------------------------------|-------------------------|-------------|---------------------------------------------------------------|
-| `dep.NMS`                     | Spigot                  | Provided    | Allows accessing CraftBukit and NMS classes                   |
-| `dep.JeffLib`                 | JeffLib                 | Shaded      | General-purpose library                                       |
-| `dep.Vault`                   | Vault                   | Soft-Depend | Permissions, Chat & Economy API                               |
-| `dep.ACF`                     | ACF                     | Shaded      | Command framework                                             |
-| `dep.MockBukkit`              | MockBukit               | Test        | Unit testing                                                  |
-| `dep.MorePersistentDataTypes` | MorePersistentDataTypes | Shaded      | More PersistentDataTypes + Collections, Maps & Arrays for PDC |
-| `dep.CustomBlockData`         | CustomBlockData         | Shaded      | PDC for Blocks                                                |
-| `dep.ProtocolLib`             | ProtocolLib             | Soft-Depend | Packet sending & listening library                            |
+| `dependNMS`                     | Spigot                  | Provided    | Allows accessing CraftBukit and NMS classes                   |
+| `dependJeffLib`                 | JeffLib                 | Shaded      | General-purpose library                                       |
+| `dependVault`                   | Vault                   | Soft-Depend | Permissions, Chat & Economy API                               |
+| `dependACF`                     | ACF                     | Shaded      | Command framework                                             |
+| `dependMockBukkit`              | MockBukit               | Test        | Unit testing                                                  |
+| `dependMorePersistentDataTypes` | MorePersistentDataTypes | Shaded      | More PersistentDataTypes + Collections, Maps & Arrays for PDC |
+| `dependCustomBlockData`         | CustomBlockData         | Shaded      | PDC for Blocks                                                |
+| `dependProtocolLib`             | ProtocolLib             | Soft-Depend | Packet sending & listening library                            |
 
 <!--
 | Allowed values                          

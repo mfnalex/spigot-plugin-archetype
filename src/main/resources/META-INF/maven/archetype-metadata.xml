@@ -1,5 +1,6 @@
 <archetype-descriptor
-        name="spigot-plugin">
+        name="spigot-plugin"
+        partial="false">
     <requiredProperties>
 
         <requiredProperty key="pluginName"> <!-- readme -->
@@ -13,7 +14,7 @@
 <!--        </requiredProperty>-->
 
         <requiredProperty key="description"> <!-- readme -->
-            <defaultValue/>
+            <defaultValue> </defaultValue>
         </requiredProperty>
 
         <requiredProperty key="author"> <!-- readme -->
@@ -45,31 +46,35 @@
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="useNMS"> <!-- readme -->
+        <requiredProperty key="dependNMS"> <!-- readme -->
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="useJeffLib"> <!-- readme -->
+        <requiredProperty key="dependJeffLib"> <!-- readme -->
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="useVault"> <!-- readme -->
+        <requiredProperty key="dependVault"> <!-- readme -->
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="useACF"> <!-- readme -->
+        <requiredProperty key="dependACF"> <!-- readme -->
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="useMockBukkit"> <!-- readme -->
+        <requiredProperty key="dependMockBukkit"> <!-- readme -->
             <defaultValue>true</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="useMorePersistentDataTypes"> <!-- readme -->
+        <requiredProperty key="dependMorePersistentDataTypes"> <!-- readme -->
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="useCustomBlockData"> <!-- readme -->
+        <requiredProperty key="dependCustomBlockData"> <!-- readme -->
+            <defaultValue>false</defaultValue>
+        </requiredProperty>
+
+        <requiredProperty key="dependProtocolLib"> <!-- readme -->
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
@@ -92,6 +97,12 @@
             <directory>src/test/java</directory>
             <includes>
                 <include>**/*</include>
+            </includes>
+        </fileSet>
+        <fileSet encoding="UTF-8" filtered="false">
+            <directory></directory>
+            <includes>
+                <include>.gitignore</include>
             </includes>
         </fileSet>
     </fileSets>

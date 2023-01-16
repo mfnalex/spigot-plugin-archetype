@@ -4,19 +4,19 @@
 #set ($zero = 0)
 #set ($majorVersion = $zero.parseInt($spigotVersion.split('\.')[0]))
 #set ($minorVersion = $zero.parseInt($spigotVersion.split('\.')[1]))
-#if (${dep.NMS} == "true")
+#if (${dependNMS} == "true")
 #set ($remapped = "true")
 #end
-#if (${dep.NMS} == "true" and $minorVersion<= 16)
+#if (${dependNMS} == "true" and $minorVersion<= 16)
 #set ($remapped = "false")
 #end
-#if (${dep.JeffLib} == "true" or ${dep.MorePersistentDataTypes} == "true" or ${dep.CustomBlockData} == "true")
+#if (${dependJeffLib} == "true" or ${dependMorePersistentDataTypes} == "true" or ${dependCustomBlockData} == "true")
 #set ($addJeffMediaRepo = "true")
 #end
-#if (${dep.Vault} == "true")
+#if (${dependVault} == "true")
 #set ($addJitpackRepo = "true")
 #end
-#if(${dep.ACF} == "true")
+#if(${dependACF} == "true")
 #set ($addAikarRepo = "true")
 #end
 #if($minorVersion >= 19)
@@ -44,9 +44,11 @@
 #set ($mockBukkitArtifactId = "MockBukkit")
 #set ($mockBukkitVersion = "0.1.0-SNAPSHOT")
 #end
-#if(${dep.MockBukkit} == "true")
+#if(${dependMockBukkit} == "true")
 #set ($addPaperRepo = "true")
 #end
+
+    <!-- MockBukkit: ${dependMockBukkit} -->
     <modelVersion>4.0.0</modelVersion>
 
     <name>${pluginName}</name>
@@ -90,7 +92,7 @@
                 <configuration>
                     <source>${dollar}{javaVersion}</source>
                     <target>${dollar}{javaVersion}</target>
-#if (${dep.ACF} == "true")
+#if (${dependACF} == "true")
                     <!-- ACF start -->
                     <compilerArgs>
                         <arg>-parameters</arg>
@@ -114,7 +116,7 @@
                 <configuration>
                     <minimizeJar>true</minimizeJar>
                     <relocations>
-#if (${dep.JeffLib} == "true")
+#if (${dependJeffLib} == "true")
                         <!-- JeffLib start -->
                         <relocation>
                             <pattern>com.jeff_media.jefflib</pattern>
@@ -122,7 +124,7 @@
                         </relocation>
                         <!-- JeffLib end -->
 #end
-#if (${dep.ACF} == "true")
+#if (${dependACF} == "true")
                         <!-- ACF start -->
                         <relocation>
                             <pattern>co.aikar.commands</pattern>
@@ -136,7 +138,7 @@
 #end
                     </relocations>
                     <filters>
-#if (${dep.JeffLib} == "true")
+#if (${dependJeffLib} == "true")
                         <!-- JeffLib start -->
                         <filter>
                             <artifact>*:*</artifact>
@@ -230,7 +232,7 @@
     </repositories>
 
     <dependencies>
-#if (${dep.NMS} != "true")
+#if (${dependNMS} != "true")
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
@@ -248,7 +250,7 @@
 #end
         </dependency>
 #end
-#if (${dep.JeffLib} == "true")
+#if (${dependJeffLib} == "true")
         <dependency>
             <groupId>com.jeff_media</groupId>
             <artifactId>JeffLib</artifactId>
@@ -256,7 +258,7 @@
             <scope>compile</scope>
         </dependency>
 #end
-#if (${dep.MorePersistentDataTypes} == "true")
+#if (${dependMorePersistentDataTypes} == "true")
         <dependency>
             <groupId>com.jeff_media</groupId>
             <artifactId>MorePersistentDataTypes</artifactId>
@@ -264,7 +266,7 @@
             <scope>compile</scope>
         </dependency>
 #end
-#if (${dep.CustomBlockData} == "true")
+#if (${dependCustomBlockData} == "true")
         <dependency>
             <groupId>com.jeff_media</groupId>
             <artifactId>CustomBlockData</artifactId>
@@ -272,7 +274,7 @@
             <scope>compile</scope>
         </dependency>
 #end
-#if (${dep.Vault} == "true")
+#if (${dependVault} == "true")
         <dependency>
             <groupId>com.github.MilkBowl</groupId>
             <artifactId>VaultAPI</artifactId>
@@ -280,7 +282,7 @@
             <scope>provided</scope>
         </dependency>
 #end
-#if (${dep.ACF} == "true")
+#if (${dependACF} == "true")
         <dependency>
             <groupId>co.aikar</groupId>
             <artifactId>acf-paper</artifactId>
@@ -288,7 +290,7 @@
             <scope>compile</scope>
         </dependency>
 #end
-#if (${dep.MockBukkit} == "true")
+#if (${dependMockBukkit} == "true")
         <!-- MockBukkit start -->
         <dependency>
             <groupId>com.github.seeseemelk</groupId>
