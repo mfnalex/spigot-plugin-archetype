@@ -7,6 +7,7 @@ This is a maven archetype ("template project") to quickly create a new Spigot pl
 - Choose whether you want to use NMS or not
   - If you use NMS, it automatically adds the mojang mapping stuff to your pom.xml if using 1.17+
 - Choose which dependencies you want to add, and automatically shade them when needed (JeffLib, Vault (todo), ...)
+- And more!
 
 ## Usage
 You simply have to clone this repo, then `mvn install` it. After that, you can use the archetype to create a new project.
