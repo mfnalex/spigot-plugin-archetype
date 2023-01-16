@@ -7,6 +7,7 @@ This is a maven archetype ("template project") to quickly create a new Spigot pl
 - Set a custom Spigot version to use (e.g. "1.19.3")
 - Choose whether you want to use NMS or not
     - If you use NMS, it automatically adds the mojang mapping stuff to your pom.xml if using 1.17+
+- Creates an "exportToServer" profile so you can deploy your .jar to your test server with one click
 - Choose which dependencies you want to add, and automatically shade them when needed (JeffLib, Vault, CustomBlockData,
   MorePersistentDataTypes...)
 - Optionally add a static instance getter to your main class
