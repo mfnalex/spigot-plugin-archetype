@@ -7,7 +7,7 @@ This is a maven archetype ("template project") to quickly create a new Spigot pl
 - Set a custom Spigot version to use (e.g. "1.19.3")
 - Choose whether you want to use NMS or not
     - If you use NMS, it automatically adds the mojang mapping stuff to your pom.xml if using 1.17+
-- Creates an "exportToTestServer" profile so you can deploy your .jar to your test server with one click
+- Creates an "exportToServer" profile so you can deploy your .jar to your test server with one click
 - Choose which dependencies you want to add, and automatically shade them when needed (JeffLib, Vault, CustomBlockData,
   MorePersistentDataTypes...)
 - Optionally add a static instance getter to your main class
@@ -15,28 +15,52 @@ This is a maven archetype ("template project") to quickly create a new Spigot pl
 
 ## Available options
 
-| Option                   | Description                                                                                                           | Allowed values                          | Default value          |
-|--------------------------|-----------------------------------------------------------------------------------------------------------------------|-----------------------------------------|------------------------|
-| `groupId`                | The Maven Group ID of your plugin                                                                                     | Any valid Maven Group ID                |                        |
-| `artifactId`             | The Maven Artifact ID of your plugin                                                                                  | Any valid Maven Artifact ID             |                        |
-| `version`                | The version of your plugin                                                                                            |                                         | `1.0-SNAPSHOT`         |
-| `pluginName`             | The name of your plugin                                                                                               | Any valid plugin name (`[a-zA-Z0-9_]+`) |                        |
-| `description`            | Your plugin's description                                                                                             |                                         |                        |
-| `author`                 | The author of your plugin                                                                                             |                                         | `Someone`              |
-| `package`                | The main package name of your plugin                                                                                  | Any valid Java package name             | `com.example.myplugin` |
-| `mainClass`              | The name of your main class (without package name)                                                                    | Any valid Java class name               | `MyPlugin`             |
-| `spigotVersion`          | The Spigot version to use                                                                                             | Any valid Spigot version                | `1.19.3`                 |
-| `javaVersion`            | The Java version to use (language level), e.g. 8 or 17                                                                | Any valid Java version                  | `8`                      |
-| `pathToTestServer`       | The path to your test server. When the `exportToServer` profile is enabled, your .jar will be exported there.         | Any valid path                          | `C:\mctest\plugins`    |
-| `useStaticInstanceGetter` | Whether to add a static instance getter to your main class                                                            | `true` or `false`                       | `false`                |
-| `useNMS`                 | Whether to include NMS dependency (`spigot` instead of `spigot-api`)                                                  | `true` or `false`                       | `false`                |
-| `useJeffLib`             | Whether to include JeffLib as shaded dependency                                                                       | `true` or `false`                       | `false`                |
-| `useVault`               | Whether to include Vault as provided dependency and as softdepend                                                     | `true` or `false`                       | `false`           |
-| `useACF`                 | Whether to include ACF as shaded dependency                                                                           | `true` or `false`                       | `false`                |
-| `useMockBukkit`          | Whether to include MockBukkit and JUnit as test dependency                                                            | `true` or `false`                       | `false`                |
-| `useMorePersistentDataTypes` | Whether to include MorePersistentDataTypes as shaded dependency                                                       | `true` or `false`                       | `false`                |
-| `useCustomBlockData`     | Whether to include CustomBlockData as shaded dependency                                                               | `true` or `false`                       | `false`                |
+| Option                   | Description                                                                                                                   | Default value          |
+|--------------------------|-------------------------------------------------------------------------------------------------------------------------------|------------------------|
+| `groupId`                | The Maven Group ID of your plugin                                                                                             |                        |
+| `artifactId`             | The Maven Artifact ID of your plugin                                                                                          |                        |
+| `version`                | The version of your plugin                                                                                                    | `1.0-SNAPSHOT`         |
+| `pluginName`             | The name of your plugin                                                                                                       |                        |
+| `description`            | Your plugin's description                                                                                                     |                        |
+| `author`                 | The author of your plugin                                                                                                     | `Someone`              |
+| `package`                | The main package name of your plugin                                                                                          | `com.example.myplugin` |
+| `mainClass`              | The name of your main class (without package name)                                                                            | `MyPlugin`             |
+| `spigotVersion`          | The Spigot version to use                                                                                                     | `1.19.3`                 |
+| `javaVersion`            | The Java version to use (language level), e.g. 8 or 17                                                                        | `8`                      |
+| `pathToTestServer`       | The optional path to your test server for the `exportToServer` profile | `C:\mctest\plugins`    |
+| `useStaticInstanceGetter` | Whether to add a static instance getter to your main class                                                                    | `false`                |
+| `useNMS`                 | Whether to include NMS dependency (`spigot` instead of `spigot-api`)                                                          | `false`                |
+| `useJeffLib`             | Whether to include JeffLib as shaded dependency                                                                               | `false`                |
+| `useVault`               | Whether to include Vault as provided dependency and as softdepend                                                             | `false`           |
+| `useACF`                 | Whether to include ACF as shaded dependency                                                                                   | `false`                |
+| `useMockBukkit`          | Whether to include MockBukkit and JUnit as test dependency                                                                    | `false`                |
+| `useMorePersistentDataTypes` | Whether to include MorePersistentDataTypes as shaded dependency                                                               | `false`                |
+| `useCustomBlockData`     | Whether to include CustomBlockData as shaded dependency                                                                       | `false`                |
+| `useProtocolLib`         | Whether to include ProtocolLib as shaded dependency                                                                           | `false`                |
 
+<!--
+| Allowed values                          
+|-----------------------------------------
+| Any valid Maven Group ID                
+| Any valid Maven Artifact ID             
+|                                         
+| Any valid plugin name (`[a-zA-Z0-9_]+`) 
+|                                         
+|                                         
+| Any valid Java package name             
+| Any valid Java class name               
+| Any valid Spigot version                
+| Any valid Java version                  
+| Any valid path                          
+ | `true` or `false`                      
+| `true` or `false`                       
+| `true` or `false`                       
+| `true` or `false`                       
+| `true` or `false`                       
+| `true` or `false`                       
+    | `true` or `false`                   
+| `true` or `false`                       
+-->
 
 ## Usage
 
