@@ -17,24 +17,24 @@ This is a maven archetype ("template project") to quickly create a new Spigot pl
 
 #### General options
 
-| Option                    | Description                             | Default value          |
-|---------------------------|-----------------------------------------|------------------------|
-| `groupId`                 | The Maven Group ID of your plugin       |                        |
-| `artifactId`              | The Maven Artifact ID of your plugin    |                        |
-| `version`                 | The version of your plugin              | `1.0-SNAPSHOT`         |
-| `pluginName`              | The name of your plugin                 |                        |
-| `description`             | Your plugin's description               |                        |
-| `author`                  | The author of your plugin               | `Someone`              |
-| `package`                 | The main package name of your plugin    | `com.example.myplugin` |
-| `mainClass`               | The name of your main class             | `MyPlugin`             |
-| `spigotVersion`           | The Spigot version to use               | `1.19.3`               |
-| `javaVersion`             | The Java version to use, e.g. 8 or 17   | `8`                    |
-| `pathToTestServer`        | The path to your server (optional)      | `C:\mctest\plugins`    |
-| `useStaticInstanceGetter` | Whether to add a static instance getter | `false`                |
+| Option               | Description                             | Default value          |
+|----------------------|-----------------------------------------|------------------------|
+| `groupId`            | The Maven Group ID of your plugin       |                        |
+| `artifactId`         | The Maven Artifact ID of your plugin    |                        |
+| `version`            | The version of your plugin              | `1.0-SNAPSHOT`         |
+| `pluginName`         | The name of your plugin                 |                        |
+| `description`        | Your plugin's description               |                        |
+| `author`             | The author of your plugin               | `Someone`              |
+| `package`            | The main package name of your plugin    | `com.example.myplugin` |
+| `mainClass`          | The name of your main class             | `MyPlugin`             |
+| `spigotVersion`      | The Spigot version to use               | `1.19.3`               |
+| `javaVersion`        | The Java version to use, e.g. 8 or 17   | `8`                    |
+| `pathToTestServer`   | The path to your server (optional)      | `C:\mctest\plugins`    |
+| `addStaticGetter`    | Whether to add a static instance getter | `false`                |
 
 #### Optional dependencies
 
-You can also automatically add the following dependencies. Allowedalse`.
+You can also automatically add the following dependencies. Allowed values are `true` and `false`. Default is `false` for all.
 
 | Option                       | Dependency              | Scope       | Description                                                   |
 |------------------------------|-------------------------|-------------|---------------------------------------------------------------|

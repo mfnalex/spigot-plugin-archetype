@@ -1,4 +1,4 @@
-#if($addStaticInstanceGetter == "true" or $useJeffLib == "true")
+#if($addStaticGetter == "true" or $useJeffLib == "true")
 #set ($initBlock = "true")
 #end
 package ${package};
@@ -17,7 +17,7 @@ import java.io.File;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class ${mainClass} extends JavaPlugin {
-#if ($addStaticInstanceGetter == "true")
+#if ($addStaticGetter == "true")
 
     private static MyPlugin instance;
 #end
@@ -25,7 +25,7 @@ public class ${mainClass} extends JavaPlugin {
 
     {
 #end
-#if ($addStaticInstanceGetter == "true")
+#if ($addStaticGetter == "true")
         instance = this;
 #end
 #if ($useJeffLib == "true")
@@ -37,7 +37,7 @@ public class ${mainClass} extends JavaPlugin {
 #if($initBlock=="true")
     }
 #end
-#if ($addStaticInstanceGetter == "true")
+#if ($addStaticGetter == "true")
 
     public static ${mainClass} getInstance() {
         return instance;

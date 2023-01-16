@@ -41,7 +41,7 @@
             <defaultValue>C:\mctest\plugins</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="addStaticInstanceGetter"> <!-- readme -->
+        <requiredProperty key="addStaticGetter"> <!-- readme -->
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
