@@ -1,35 +1,69 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-#set ($remapped = false)
-#set ($majorVersion = $spigotVersion.split('\.')[0])
-#set ($minorVersion = $spigotVersion.split('\.')[1])
-#if ($useNms)
-    #set ($remapped = true)
+#set ($dollar = "$")
+#set ($zero = 0)
+#set ($majorVersion = $zero.parseInt($spigotVersion.split('\.')[0]))
+#set ($minorVersion = $zero.parseInt($spigotVersion.split('\.')[1]))
+#if ($useNms == "true")
+#set ($remapped = "true")
 #end
-#if ($useNms == "true" && $minorVersion<= 16)
-    #set ($remapped = false)
+#if ($useNms == "true" and $minorVersion<= 16)
+#set ($remapped = "false")
 #end
-#set ($addJeffMediaRepo = "false")
 #if ($useJeffLib == "true")
-    #set ($addJeffMediaRepo = "true")
+#set ($addJeffMediaRepo = "true")
 #end
 #if ($useVault == "true")
-    #set ($addJitpackRepo = "true")
+#set ($addJitpackRepo = "true")
 #end
+#if($useACF == "true")
+#set ($addAikarRepo = "true")
+#end
+#if($minorVersion >= 19)
+#set ($mockBukkitArtifactId = "MockBukkit-v1.19")
+#set ($mockBukkitVersion = "2.144.4")
+#elseif($minorVersion == 18)
+#set ($mockBukkitArtifactId = "MockBukkit-v1.18")
+#set ($mockBukkitVersion = "2.85.2")
+#elseif($minorVersion == 17)
+#set ($mockBukkitArtifactId = "MockBukkit-v1.17")
+#set ($mockBukkitVersion = "1.13.0")
+#elseif($minorVersion == 16)
+#set ($mockBukkitArtifactId = "MockBukkit-v1.16")
+#set ($mockBukkitVersion = "1.5.2")
+#elseif($minorVersion == 15)
+#set ($mockBukkitArtifactId = "MockBukkit-v1.15")
+#set ($mockBukkitVersion = "0.3.0")
+#elseif($minorVersion == 14)
+#set ($mockBukkitArtifactId = "MockBukkit-v1.14")
+#set ($mockBukkitVersion = "0.2.2")
+#elseif($minorVersion == 13)
+#set ($mockBukkitArtifactId = "MockBukkit-v1.13-spigot")
+#set ($mockBukkitVersion = "0.2.0")
+#else
+#set ($mockBukkitArtifactId = "MockBukkit")
+#set ($mockBukkitVersion = "0.1.0-SNAPSHOT")
+#end
+#if($useMockBukkit == "true")
+#set ($addPaperRepo = "true")
+#end
+    <!-- Major: ${majorVersion} -->
+    <!-- Minor: ${minorVersion} -->
     <modelVersion>4.0.0</modelVersion>
 
+    <name>${pluginName}</name>
     <groupId>${groupId}</groupId>
     <artifactId>${artifactId}</artifactId>
     <version>${version}</version>
     <packaging>jar</packaging>
 
-    <name>${pluginName}</name>
-
     <properties>
-        <spigot.version>${spigotVersion}</spigot.version>
-        <java.version>${javaVersion}</java.version>
-        <maven.compiler.source>${java.version}</maven.compiler.source>
-        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <spigotVersion>${spigotVersion}</spigotVersion>
+        <javaVersion>${javaVersion}</javaVersion>
+        <testServerPath>${pathToTestServer}</testServerPath>
+        <shadedPackage>${package}.shaded</shadedPackage>
+
+        <!-- Do not change the following properties -->
         <outputDirectory>target</outputDirectory>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -38,10 +72,133 @@
         <profile>
             <id>exportToTestServer</id>
             <properties>
-                <outputDirectory>${pathToTestServer}</outputDirectory>
+                <outputDirectory>${dollar}{testServerPath}</outputDirectory>
             </properties>
         </profile>
     </profiles>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.10.1</version>
+                <configuration>
+                    <source>${dollar}{javaVersion}</source>
+                    <target>${dollar}{javaVersion}</target>
+#if ($useACF == "true")
+                    <!-- ACF start -->
+                    <compilerArgs>
+                        <arg>-parameters</arg>
+                    </compilerArgs>
+                    <!-- ACF end -->
+#end
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <outputDirectory>${outputDirectory}</outputDirectory>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.4.1</version>
+                <configuration>
+                    <minimizeJar>true</minimizeJar>
+                    <relocations>
+#if ($useJeffLib == "true")
+                        <!-- JeffLib start -->
+                        <relocation>
+                            <pattern>com.jeff_media.jefflib</pattern>
+                            <shadedPattern>${dollar}{shadedPackage}.jefflib</shadedPattern>
+                        </relocation>
+                        <!-- JeffLib end -->
+#end
+#if ($useACF == "true")
+                        <!-- ACF start -->
+                        <relocation>
+                            <pattern>co.aikar.commands</pattern>
+                            <shadedPattern>${dollar}{shadedPackage}.acf</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>co.aikar.locales</pattern>
+                            <shadedPattern>${dollar}{shadedPackage}.locales</shadedPattern>
+                        </relocation>
+                        <!-- ACF end -->
+#end
+                    </relocations>
+                    <filters>
+#if ($useJeffLib == "true")
+                        <!-- JeffLib start -->
+                        <filter>
+                            <artifact>*:*</artifact>
+                            <excludeDefaults>false</excludeDefaults>
+                            <includes>
+                                <include>com/jeff_media/jefflib/internal/nms/**</include>
+                            </includes>
+                        </filter>
+                        <!-- JeffLib end -->
+#end
+                    </filters>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <phase>package</phase>
+                    </execution>
+                </executions>
+            </plugin>
+#if ($remapped == "true")
+            <!-- Remapping start -->
+            <plugin>
+                <groupId>net.md-5</groupId>
+                <artifactId>specialsource-maven-plugin</artifactId>
+                <version>1.2.4</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>remap</goal>
+                        </goals>
+                        <id>remap-obf</id>
+                        <configuration>
+                            <srgIn>org.spigotmc:minecraft-server:${dollar}{spigotVersion}-R0.1-SNAPSHOT:txt:maps-mojang</srgIn>
+                            <reverse>true</reverse>
+                            <remappedDependencies>org.spigotmc:spigot:${dollar}{spigotVersion}-R0.1-SNAPSHOT:jar:remapped-mojang</remappedDependencies>
+                            <remappedArtifactAttached>true</remappedArtifactAttached>
+                            <remappedClassifierName>remapped-obf</remappedClassifierName>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>remap</goal>
+                        </goals>
+                        <id>remap-spigot</id>
+                        <configuration>
+                            <inputFile>${dollar}{project.build.directory}/${dollar}{project.artifactId}-${dollar}{project.version}-remapped-obf.jar</inputFile>
+                            <srgIn>org.spigotmc:minecraft-server:${dollar}{spigotVersion}-R0.1-SNAPSHOT:csrg:maps-spigot</srgIn>
+                            <remappedDependencies>org.spigotmc:spigot:${dollar}{spigotVersion}-R0.1-SNAPSHOT:jar:remapped-obf</remappedDependencies>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Remapping end -->
+#end
+        </plugins>
+    </build>
 
     <repositories>
         <repository>
@@ -60,6 +217,18 @@
             <url>https://jitpack.io</url>
         </repository>
 #end
+#if ($addAikarRepo == "true")
+        <repository>
+            <id>aikar</id>
+            <url>https://repo.aikar.co/content/groups/aikar/</url>
+        </repository>
+#end
+#if ($addPaperRepo == "true")
+        <repository>
+            <id>papermc</id>
+            <url>https://repo.papermc.io/repository/maven-public/</url>
+        </repository>
+#end
     </repositories>
 
     <dependencies>
@@ -67,26 +236,19 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>${spigot.version}-R0.1-SNAPSHOT</version>
+            <version>${dollar}{spigotVersion}-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
 #else
-#if($remapped)
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot</artifactId>
-            <version>${spigot.version}-R0.1-SNAPSHOT</version>
+            <version>${dollar}{spigotVersion}-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
+#if($remapped == "true")
             <classifier>remapped-mojang</classifier>
-        </dependency>
-#else
-        <dependency>
-            <groupId>org.spigotmc</groupId>
-            <artifactId>spigot</artifactId>
-            <version>${spigot.version}-R0.1-SNAPSHOT</version>
-            <scope>provided</scope>
-        </dependency>
 #end
+        </dependency>
 #end
 #if ($useJeffLib == "true")
         <dependency>
@@ -104,92 +266,36 @@
             <scope>provided</scope>
         </dependency>
 #end
+#if ($useACF == "true")
+        <dependency>
+            <groupId>co.aikar</groupId>
+            <artifactId>acf-paper</artifactId>
+            <version>0.5.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+#end
+#if ($useMockBukkit == "true")
+        <!-- MockBukkit start -->
+        <dependency>
+            <groupId>com.github.seeseemelk</groupId>
+            <artifactId>${mockBukkitArtifactId}</artifactId>
+            <version>${mockBukkitVersion}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>2.0.6</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- MockBukkit end -->
+#end
     </dependencies>
 
-    <build>
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>true</filtering>
-            </resource>
-        </resources>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.3.0</version>
-                <configuration>
-                    <outputDirectory>${outputDirectory}</outputDirectory>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>3.3.0</version>
-                <configuration>
-                    <minimizeJar>true</minimizeJar>
-#if ($useJeffLib)
-                    <relocations>
-                        <relocation>
-                            <pattern>com.jeff_media.jefflib</pattern>
-                            <shadedPattern>${package}.jefflib</shadedPattern>
-                        </relocation>
-                    </relocations>
-                    <filters>
-                        <filter>
-                            <artifact>*:*</artifact>
-                            <excludeDefaults>false</excludeDefaults>
-                            <includes>
-                                <include>com/jeff_media/jefflib/internal/nms/**</include>
-                            </includes>
-                        </filter>
-                    </filters>
-#end
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                        <phase>package</phase>
-                    </execution>
-                </executions>
-            </plugin>
-#if ($remapped)
-            <plugin>
-                <groupId>net.md-5</groupId>
-                <artifactId>specialsource-maven-plugin</artifactId>
-                <version>1.2.2</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>remap</goal>
-                        </goals>
-                        <id>remap-obf</id>
-                        <configuration>
-                            <srgIn>org.spigotmc:minecraft-server:${spigot.version}-R0.1-SNAPSHOT:txt:maps-mojang</srgIn>
-                            <reverse>true</reverse>
-                            <remappedDependencies>org.spigotmc:spigot:${spigot.version}-R0.1-SNAPSHOT:jar:remapped-mojang</remappedDependencies>
-                            <remappedArtifactAttached>true</remappedArtifactAttached>
-                            <remappedClassifierName>remapped-obf</remappedClassifierName>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>remap</goal>
-                        </goals>
-                        <id>remap-spigot</id>
-                        <configuration>
-                            <inputFile>${project.build.directory}/${project.artifactId}-${project.version}-remapped-obf.jar</inputFile>
-                            <srgIn>org.spigotmc:minecraft-server:${spigot.version}-R0.1-SNAPSHOT:csrg:maps-spigot</srgIn>
-                            <remappedDependencies>org.spigotmc:spigot:${spigot.version}-R0.1-SNAPSHOT:jar:remapped-obf</remappedDependencies>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-#end
-        </plugins>
-    </build>
 </project>

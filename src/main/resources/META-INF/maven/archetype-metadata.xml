@@ -17,7 +17,7 @@
         </requiredProperty>
 
         <requiredProperty key="author">
-            <defaultValue>me</defaultValue>
+            <defaultValue>Someone</defaultValue>
         </requiredProperty>
 
         <requiredProperty key="spigotVersion">
@@ -53,6 +53,14 @@
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
+        <requiredProperty key="useACF">
+            <defaultValue>false</defaultValue>
+        </requiredProperty>
+
+        <requiredProperty key="useMockBukkit">
+            <defaultValue>true</defaultValue>
+        </requiredProperty>
+
     </requiredProperties>
 
     <fileSets>
@@ -64,6 +72,12 @@
         </fileSet>
         <fileSet encoding="UTF-8" filtered="true">
             <directory>src/main/resources</directory>
+            <includes>
+                <include>**/*</include>
+            </includes>
+        </fileSet>
+        <fileSet encoding="UTF-8" filtered="true" packaged="true">
+            <directory>src/test/java</directory>
             <includes>
                 <include>**/*</include>
             </includes>
