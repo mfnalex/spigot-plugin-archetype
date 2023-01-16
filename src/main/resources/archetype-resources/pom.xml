@@ -13,7 +13,7 @@
 #if ($useJeffLib == "true")
     #set ($addJeffMediaRepo = "true")
 #end
-#f ($useVault == "true")
+#if ($useVault == "true")
     #set ($addJitpackRepo = "true")
 #end
     <modelVersion>4.0.0</modelVersion>
@@ -30,8 +30,18 @@
         <java.version>${javaVersion}</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
+        <outputDirectory>target</outputDirectory>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <profiles>
+        <profile>
+            <id>exportToTestServer</id>
+            <properties>
+                <outputDirectory>${pathToTestServer}</outputDirectory>
+            </properties>
+        </profile>
+    </profiles>
 
     <repositories>
         <repository>
@@ -44,7 +54,7 @@
             <url>https://hub.jeff-media.com/nexus/repository/jeff-media-public/</url>
         </repository>
 #end
-äif ($addJitpackRepo == "true")
+#if ($addJitpackRepo == "true")
         <repository>
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
@@ -104,6 +114,14 @@
             </resource>
         </resources>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <outputDirectory>${outputDirectory}</outputDirectory>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>

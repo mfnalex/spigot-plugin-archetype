@@ -37,6 +37,10 @@
             <defaultValue>8</defaultValue>
         </requiredProperty>
 
+        <requiredProperty key="pathToTestServer">
+            <defaultValue>C:\mctest\plugins</defaultValue>
+        </requiredProperty>
+
         <requiredProperty key="useNms">
             <defaultValue>false</defaultValue>
         </requiredProperty>
@@ -45,7 +49,7 @@
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="useJeffLib">
+        <requiredProperty key="useVault">
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
