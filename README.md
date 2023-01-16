@@ -60,8 +60,8 @@ Then, you can create a new project using the archetype, either through your IDE 
 5. Select `com.jeff-media:spigot-plugin` in the `Archetype` menu. If this does not appear, click on `Add`, then enter `com.jeff_media` as Group ID, `spigot-plugin` as Artifact ID and `1.0.0-SNAPSHOT` as Version.
 6. Fill in the properties to your likings
 
-![img.png](img.png)
-![img_1.png](img_1.png)
+![img.png](img/intellij_create_project.png)
+![img_1.png](img/intellij_add_archetype.png)
 
 #### From Command line
 
