@@ -68,3 +68,7 @@ Then, you can create a new project using the archetype, either through your IDE 
 ```shell
 mvn archetype:generate -DarchetypeArtifactId=spigot-plugin -DarchetypeGroupId=com.jeff_media -DarchetypeVersion=1.0.0-SNAPSHOT -D<option>=<value> ...
 ```
+
+## Todo
+- Add SpigotUpdateChecker dependency
+- Add WorldEdit / WorldGuard dependency
