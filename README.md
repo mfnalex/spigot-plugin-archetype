@@ -36,16 +36,16 @@ This is a maven archetype ("template project") to quickly create a new Spigot pl
 
 You can also automatically add the following dependencies. Allowed values are `true` and `false`. Default is `false` for all.
 
-| Option                       | Dependency              | Scope       | Description                                                   |
-|------------------------------|-------------------------|-------------|---------------------------------------------------------------|
-| `useNMS`                     | Spigot                  | Provided    | Allows accessing CraftBukit and NMS classes                   |
-| `useJeffLib`                 | JeffLib                 | Shaded      | General-purpose library                                       |
-| `useVault`                   | Vault                   | Soft-Depend | Permissions, Chat & Economy API                               |
-| `useACF`                     | ACF                     | Shaded      | Command framework                                             |
-| `useMockBukkit`              | MockBukit               | Test        | Unit testing                                                  |
-| `useMorePersistentDataTypes` | MorePersistentDataTypes | Shaded      | More PersistentDataTypes + Collections, Maps & Arrays for PDC |
-| `useCustomBlockData`         | CustomBlockData         | Shaded      | PDC for Blocks                                                |
-| `useProtocolLib`             | ProtocolLib             | Soft-Depend | Packet sending & listening library                            |
+| Option                        | Dependency              | Scope       | Description                                                   |
+|-------------------------------|-------------------------|-------------|---------------------------------------------------------------|
+| `dep.NMS`                     | Spigot                  | Provided    | Allows accessing CraftBukit and NMS classes                   |
+| `dep.JeffLib`                 | JeffLib                 | Shaded      | General-purpose library                                       |
+| `dep.Vault`                   | Vault                   | Soft-Depend | Permissions, Chat & Economy API                               |
+| `dep.ACF`                     | ACF                     | Shaded      | Command framework                                             |
+| `dep.MockBukkit`              | MockBukit               | Test        | Unit testing                                                  |
+| `dep.MorePersistentDataTypes` | MorePersistentDataTypes | Shaded      | More PersistentDataTypes + Collections, Maps & Arrays for PDC |
+| `dep.CustomBlockData`         | CustomBlockData         | Shaded      | PDC for Blocks                                                |
+| `dep.ProtocolLib`             | ProtocolLib             | Soft-Depend | Packet sending & listening library                            |
 
 <!--
 | Allowed values                          

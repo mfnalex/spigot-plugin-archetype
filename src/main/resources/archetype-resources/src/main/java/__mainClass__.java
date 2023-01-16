@@ -1,15 +1,15 @@
-#if($addStaticGetter == "true" or $useJeffLib == "true")
+#if($addStaticGetter == "true" or ${dep.JeffLib} == "true")
 #set ($initBlock = "true")
 #end
 package ${package};
 
-#if ($useACF == "true")
+#if (${dep.ACF} == "true")
 import co.aikar.commands.PaperCommandManager;
 #end
-#if ($useJeffLib == "true")
+#if (${dep.JeffLib} == "true")
 import com.jeff_media.jefflib.JeffLib;
 #end
-#if ($useMockBukkit == "true")
+#if (${dep.MockBukkit} == "true")
 import org.bukkit.plugin.java.JavaPluginLoader;
 import org.bukkit.plugin.PluginDescriptionFile;
 import java.io.File;
@@ -28,9 +28,9 @@ public class ${mainClass} extends JavaPlugin {
 #if ($addStaticGetter == "true")
         instance = this;
 #end
-#if ($useJeffLib == "true")
+#if (${dep.JeffLib} == "true")
         JeffLib.init(this);
-#if ($useNMS == "true")
+#if (${dep.NMS} == "true")
         JeffLib.enableNMS();
 #end
 #end
@@ -43,7 +43,7 @@ public class ${mainClass} extends JavaPlugin {
         return instance;
     }
 #end
-#if ($useMockBukkit == "true")
+#if (${dep.MockBukkit} == "true")
 
     /**
      * Required for MockBukkit
@@ -62,7 +62,7 @@ public class ${mainClass} extends JavaPlugin {
 
     @Override
     public void onEnable() {
-#if ($useACF == "true")
+#if (${dep.ACF} == "true")
         PaperCommandManager acf = new PaperCommandManager(this);
 #end
     }
