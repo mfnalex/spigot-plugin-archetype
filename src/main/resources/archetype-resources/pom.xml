@@ -68,7 +68,7 @@
 
     <profiles>
         <profile>
-            <id>exportToTestServer</id>
+            <id>exportToServer</id>
             <properties>
                 <outputDirectory>${dollar}{testServerPath}</outputDirectory>
             </properties>
