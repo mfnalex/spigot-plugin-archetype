@@ -11,7 +11,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class UnitTest {
+public class ${mainClass}Test {
 
     private ServerMock server;
     private ${mainClass} plugin;

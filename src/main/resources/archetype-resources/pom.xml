@@ -4,13 +4,13 @@
 #set ($zero = 0)
 #set ($majorVersion = $zero.parseInt($spigotVersion.split('\.')[0]))
 #set ($minorVersion = $zero.parseInt($spigotVersion.split('\.')[1]))
-#if ($useNms == "true")
+#if ($useNMS == "true")
 #set ($remapped = "true")
 #end
-#if ($useNms == "true" and $minorVersion<= 16)
+#if ($useNMS == "true" and $minorVersion<= 16)
 #set ($remapped = "false")
 #end
-#if ($useJeffLib == "true")
+#if ($useJeffLib == "true" or $useMorePersistentDataTypes == "true" or $useCustomBlockData == "true")
 #set ($addJeffMediaRepo = "true")
 #end
 #if ($useVault == "true")
@@ -47,8 +47,6 @@
 #if($useMockBukkit == "true")
 #set ($addPaperRepo = "true")
 #end
-    <!-- Major: ${majorVersion} -->
-    <!-- Minor: ${minorVersion} -->
     <modelVersion>4.0.0</modelVersion>
 
     <name>${pluginName}</name>
@@ -232,7 +230,7 @@
     </repositories>
 
     <dependencies>
-#if ($useNms != "true")
+#if ($useNMS != "true")
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
@@ -255,6 +253,22 @@
             <groupId>com.jeff_media</groupId>
             <artifactId>JeffLib</artifactId>
             <version>12.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+#end
+#if ($useMorePersistentDataTypes == "true")
+        <dependency>
+            <groupId>com.jeff_media</groupId>
+            <artifactId>MorePersistentDataTypes</artifactId>
+            <version>2.3.1</version>
+            <scope>compile</scope>
+        </dependency>
+#end
+#if ($useCustomBlockData == "true")
+        <dependency>
+            <groupId>com.jeff_media</groupId>
+            <artifactId>CustomBlockData</artifactId>
+            <version>2.1.0</version>
             <scope>compile</scope>
         </dependency>
 #end

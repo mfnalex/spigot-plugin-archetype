@@ -1,7 +1,13 @@
+#if($addStaticInstanceGetter == "true" or $useJeffLib == "true")
+#set ($initBlock = "true")
+#end
 package ${package};
 
 #if ($useACF == "true")
 import co.aikar.commands.PaperCommandManager;
+#end
+#if ($useJeffLib == "true")
+import com.jeff_media.jefflib.JeffLib;
 #end
 #if ($useMockBukkit == "true")
 import org.bukkit.plugin.java.JavaPluginLoader;
@@ -11,8 +17,41 @@ import java.io.File;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class ${mainClass} extends JavaPlugin {
+#if ($addStaticInstanceGetter == "true")
 
+    private static MyPlugin instance;
+#end
+#if ($initBlock == "true")
+
+    {
+#end
+#if ($addStaticInstanceGetter == "true")
+        instance = this;
+#end
+#if ($useJeffLib == "true")
+        JeffLib.init(this);
+#if ($useNMS == "true")
+        JeffLib.enableNMS();
+#end
+#end
+#if($initBlock=="true")
+    }
+#end
+#if ($addStaticInstanceGetter == "true")
+
+    public static ${mainClass} getInstance() {
+        return instance;
+    }
+#end
 #if ($useMockBukkit == "true")
+
+    /**
+     * Required for MockBukkit
+     */
+    public MyPlugin() {
+
+    }
+
     /**
     * Required for MockBukkit
     */

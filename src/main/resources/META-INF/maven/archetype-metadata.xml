@@ -2,63 +2,75 @@
         name="spigot-plugin">
     <requiredProperties>
 
-        <requiredProperty key="pluginName">
+        <requiredProperty key="pluginName"> <!-- readme -->
             <defaultValue>MyPlugin</defaultValue>
             <validationRegex>[a-zA-Z0-9_]+</validationRegex>
         </requiredProperty>
 
-        <requiredProperty key="groupId">
-            <defaultValue>my.groupid</defaultValue>
-            <validationRegex>([\p{L}_$][\p{L}\p{N}_$]*\.)*[\p{L}_$][\p{L}\p{N}_$]*</validationRegex>
-        </requiredProperty>
+<!--        <requiredProperty key="groupId">-->
+<!--            <defaultValue>my.groupid</defaultValue>-->
+<!--            <validationRegex>([\p{L}_$][\p{L}\p{N}_$]*\.)*[\p{L}_$][\p{L}\p{N}_$]*</validationRegex>-->
+<!--        </requiredProperty>-->
 
-        <requiredProperty key="description">
+        <requiredProperty key="description"> <!-- readme -->
             <defaultValue/>
         </requiredProperty>
 
-        <requiredProperty key="author">
+        <requiredProperty key="author"> <!-- readme -->
             <defaultValue>Someone</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="spigotVersion">
-            <defaultValue>1.19.3</defaultValue>
+        <requiredProperty key="package"> <!-- readme -->
+            <defaultValue>com.example.myplugin</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="package">
-            <defaultValue>me.someone.myplugin</defaultValue>
-        </requiredProperty>
-
-        <requiredProperty key="mainClass">
+        <requiredProperty key="mainClass"> <!-- readme -->
             <defaultValue>MyPlugin</defaultValue>
             <validationRegex>([\p{L}_$][\p{L}\p{N}_$]*\.)*[\p{L}_$][\p{L}\p{N}_$]*</validationRegex>
         </requiredProperty>
 
-        <requiredProperty key="javaVersion">
+        <requiredProperty key="spigotVersion"> <!-- readme -->
+            <defaultValue>1.19.3</defaultValue>
+        </requiredProperty>
+
+        <requiredProperty key="javaVersion"> <!-- readme -->
             <defaultValue>8</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="pathToTestServer">
+        <requiredProperty key="pathToTestServer"> <!-- readme -->
             <defaultValue>C:\mctest\plugins</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="useNms">
+        <requiredProperty key="addStaticInstanceGetter"> <!-- readme -->
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="useJeffLib">
+        <requiredProperty key="useNMS"> <!-- readme -->
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="useVault">
+        <requiredProperty key="useJeffLib"> <!-- readme -->
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="useACF">
+        <requiredProperty key="useVault"> <!-- readme -->
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="useMockBukkit">
+        <requiredProperty key="useACF"> <!-- readme -->
+            <defaultValue>false</defaultValue>
+        </requiredProperty>
+
+        <requiredProperty key="useMockBukkit"> <!-- readme -->
             <defaultValue>true</defaultValue>
+        </requiredProperty>
+
+        <requiredProperty key="useMorePersistentDataTypes"> <!-- readme -->
+            <defaultValue>false</defaultValue>
+        </requiredProperty>
+
+        <requiredProperty key="useCustomBlockData"> <!-- readme -->
+            <defaultValue>false</defaultValue>
         </requiredProperty>
 
     </requiredProperties>
