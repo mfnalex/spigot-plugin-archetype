@@ -15,28 +15,37 @@ This is a maven archetype ("template project") to quickly create a new Spigot pl
 
 ## Available options
 
-| Option                   | Description                                                                                                                   | Default value          |
-|--------------------------|-------------------------------------------------------------------------------------------------------------------------------|------------------------|
-| `groupId`                | The Maven Group ID of your plugin                                                                                             |                        |
-| `artifactId`             | The Maven Artifact ID of your plugin                                                                                          |                        |
-| `version`                | The version of your plugin                                                                                                    | `1.0-SNAPSHOT`         |
-| `pluginName`             | The name of your plugin                                                                                                       |                        |
-| `description`            | Your plugin's description                                                                                                     |                        |
-| `author`                 | The author of your plugin                                                                                                     | `Someone`              |
-| `package`                | The main package name of your plugin                                                                                          | `com.example.myplugin` |
-| `mainClass`              | The name of your main class (without package name)                                                                            | `MyPlugin`             |
-| `spigotVersion`          | The Spigot version to use                                                                                                     | `1.19.3`                 |
-| `javaVersion`            | The Java version to use (language level), e.g. 8 or 17                                                                        | `8`                      |
-| `pathToTestServer`       | The optional path to your test server for the `exportToServer` profile | `C:\mctest\plugins`    |
-| `useStaticInstanceGetter` | Whether to add a static instance getter to your main class                                                                    | `false`                |
-| `useNMS`                 | Whether to include NMS dependency (`spigot` instead of `spigot-api`)                                                          | `false`                |
-| `useJeffLib`             | Whether to include JeffLib as shaded dependency                                                                               | `false`                |
-| `useVault`               | Whether to include Vault as provided dependency and as softdepend                                                             | `false`           |
-| `useACF`                 | Whether to include ACF as shaded dependency                                                                                   | `false`                |
-| `useMockBukkit`          | Whether to include MockBukkit and JUnit as test dependency                                                                    | `false`                |
-| `useMorePersistentDataTypes` | Whether to include MorePersistentDataTypes as shaded dependency                                                               | `false`                |
-| `useCustomBlockData`     | Whether to include CustomBlockData as shaded dependency                                                                       | `false`                |
-| `useProtocolLib`         | Whether to include ProtocolLib as shaded dependency                                                                           | `false`                |
+#### General options
+
+| Option                    | Description                             | Default value          |
+|---------------------------|-----------------------------------------|------------------------|
+| `groupId`                 | The Maven Group ID of your plugin       |                        |
+| `artifactId`              | The Maven Artifact ID of your plugin    |                        |
+| `version`                 | The version of your plugin              | `1.0-SNAPSHOT`         |
+| `pluginName`              | The name of your plugin                 |                        |
+| `description`             | Your plugin's description               |                        |
+| `author`                  | The author of your plugin               | `Someone`              |
+| `package`                 | The main package name of your plugin    | `com.example.myplugin` |
+| `mainClass`               | The name of your main class             | `MyPlugin`             |
+| `spigotVersion`           | The Spigot version to use               | `1.19.3`               |
+| `javaVersion`             | The Java version to use, e.g. 8 or 17   | `8`                    |
+| `pathToTestServer`        | The path to your server (optional)      | `C:\mctest\plugins`    |
+| `useStaticInstanceGetter` | Whether to add a static instance getter | `false`                |
+
+#### Optional dependencies
+
+You can also automatically add the following dependencies. Allowedalse`.
+
+| Option                       | Dependency              | Scope       | Description                                                   |
+|------------------------------|-------------------------|-------------|---------------------------------------------------------------|
+| `useNMS`                     | Spigot                  | Provided    | Allows accessing CraftBukit and NMS classes                   |
+| `useJeffLib`                 | JeffLib                 | Shaded      | General-purpose library                                       |
+| `useVault`                   | Vault                   | Soft-Depend | Permissions, Chat & Economy API                               |
+| `useACF`                     | ACF                     | Shaded      | Command framework                                             |
+| `useMockBukkit`              | MockBukit               | Test        | Unit testing                                                  |
+| `useMorePersistentDataTypes` | MorePersistentDataTypes | Shaded      | More PersistentDataTypes + Collections, Maps & Arrays for PDC |
+| `useCustomBlockData`         | CustomBlockData         | Shaded      | PDC for Blocks                                                |
+| `useProtocolLib`             | ProtocolLib             | Soft-Depend | Packet sending & listening library                            |
 
 <!--
 | Allowed values                          
