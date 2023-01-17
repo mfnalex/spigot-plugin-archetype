@@ -1,40 +1,57 @@
 <archetype-descriptor
         name="spigot-plugin"
         partial="false">
+
+    <!-- I only want to get the requiredProperty's from inside this block -->
     <requiredProperties>
 
-        <requiredProperty key="pluginName"> <!-- readme -->
+        <requiredProperty key="pluginName" name="Plugin Name" type="text"> <!-- readme -->
             <defaultValue>MyPlugin</defaultValue>
             <validationRegex>[a-zA-Z0-9_]+</validationRegex>
         </requiredProperty>
 
-<!--        <requiredProperty key="groupId">-->
-<!--            <defaultValue>my.groupid</defaultValue>-->
-<!--            <validationRegex>([\p{L}_$][\p{L}\p{N}_$]*\.)*[\p{L}_$][\p{L}\p{N}_$]*</validationRegex>-->
-<!--        </requiredProperty>-->
-
-        <requiredProperty key="description"> <!-- readme -->
-            <defaultValue> </defaultValue>
+        <requiredProperty key="author" name="Author" type="text" separator="true"> <!-- readme -->
+            <defaultValue>Joe Mama</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="author"> <!-- readme -->
-            <defaultValue>Someone</defaultValue>
+        <!--  Separator  -->
+
+        <requiredProperty key="groupId" name="Group ID" type="text">
+            <defaultValue>org.example</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="package"> <!-- readme -->
+        <requiredProperty key="artifactId" name="Artifact ID" type="text">
+            <defaultValue>my-plugin</defaultValue>
+            <!--            <validationRegex>[a-z][a-z0-9-]*</validationRegex>-->
+        </requiredProperty>
+
+        <requiredProperty key="version" name="Version" type="text" separator="true">
+            <defaultValue>1.0-SNAPSHOT</defaultValue>
+            <!--            <validationRegex>[0-9]+(\.[0-9]+)*(-[a-zA-Z0-9]+)?</validationRegex>-->
+        </requiredProperty>
+
+        <!--  Separator  -->
+
+        <requiredProperty key="package" name="Package" type="text"> <!-- readme -->
             <defaultValue>com.example.myplugin</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="mainClass"> <!-- readme -->
+        <requiredProperty key="mainClass" name="Main Class" type="text" separator="true"> <!-- readme -->
             <defaultValue>MyPlugin</defaultValue>
             <validationRegex>([\p{L}_$][\p{L}\p{N}_$]*\.)*[\p{L}_$][\p{L}\p{N}_$]*</validationRegex>
         </requiredProperty>
 
-        <requiredProperty key="spigotVersion"> <!-- readme -->
+        <!--  Separator  -->
+
+        <requiredProperty key="spigotVersion" name="spigotVersion" type="text"> <!-- readme -->
             <defaultValue>1.19.3</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="javaVersion"> <!-- readme -->
+        <requiredProperty key="dependNMS" name="Include NMS / CraftBukkit dependency" type="checkbox"> <!-- readme -->
+            <defaultValue>false</defaultValue>
+        </requiredProperty>
+
+        <requiredProperty key="javaVersion" name="Java Version" type="text"> <!-- readme -->
             <defaultValue>8</defaultValue>
         </requiredProperty>
 
@@ -47,10 +64,6 @@
         </requiredProperty>
 
         <requiredProperty key="dependLombok"> <!-- readme -->
-            <defaultValue>false</defaultValue>
-        </requiredProperty>
-
-        <requiredProperty key="dependNMS"> <!-- readme -->
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
