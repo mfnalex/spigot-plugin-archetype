@@ -48,9 +48,7 @@ public class ${mainClass} extends JavaPlugin {
     /**
      * Required for MockBukkit
      */
-    public MyPlugin() {
-
-    }
+    public MyPlugin() {}
 
     /**
     * Required for MockBukkit
@@ -63,8 +61,31 @@ public class ${mainClass} extends JavaPlugin {
     @Override
     public void onEnable() {
 #if (${dependACF} == "true")
+
         PaperCommandManager acf = new PaperCommandManager(this);
 #end
+#if (${dependSpigotUpdateChecker} == "true")
+
+        checkForUpdates();
+#end
+
     }
 
+#if (${dependSpigotUpdateChecker} == "true")
+        private void checkForUpdates() {
+            final String spigotResourceId = "59773";
+            final String downloadLink = "https://www.spigotmc.org/resources/chestsort-api.59773/";
+            final String donationLink = "https://paypal.me/mfnalex";
+            final String changelogLink = "https://www.spigotmc.org/resources/chestsort-api.59773/updates";
+
+            new UpdateChecker(this, UpdateCheckSource.SPIGOT, spigotResourceId)
+            .setDownloadLink(downloadLink)
+            .setDonationLink(donationLink)
+            .setChangelogLink(changelogLink)
+            .setNotifyOpsOnJoin(true)
+            .setUserAgent(UserAgentBuilder.getDefaultUserAgent())
+            .checkNow();
+        }
+
+#end
 }

@@ -46,6 +46,10 @@
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
+        <requiredProperty key="dependLombok"> <!-- readme -->
+            <defaultValue>false</defaultValue>
+        </requiredProperty>
+
         <requiredProperty key="dependNMS"> <!-- readme -->
             <defaultValue>false</defaultValue>
         </requiredProperty>
@@ -75,6 +79,18 @@
         </requiredProperty>
 
         <requiredProperty key="dependProtocolLib"> <!-- readme -->
+            <defaultValue>false</defaultValue>
+        </requiredProperty>
+
+        <requiredProperty key="dependWorldEdit"> <!-- readme -->
+            <defaultValue>false</defaultValue>
+        </requiredProperty>
+
+        <requiredProperty key="dependWorldGuard"> <!-- readme -->
+            <defaultValue>false</defaultValue>
+        </requiredProperty>
+
+        <requiredProperty key="dependSpigotUpdateChecker"> <!-- readme -->
             <defaultValue>false</defaultValue>
         </requiredProperty>
 

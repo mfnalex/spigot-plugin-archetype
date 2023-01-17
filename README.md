@@ -36,16 +36,20 @@ This is a maven archetype ("template project") to quickly create a new Spigot pl
 
 You can also automatically add the following dependencies. Allowed values are `true` and `false`. Default is `false` for all.
 
-| Option                        | Dependency              | Scope       | Description                                                   |
-|-------------------------------|-------------------------|-------------|---------------------------------------------------------------|
-| `dependNMS`                     | Spigot                  | Provided    | Allows accessing CraftBukit and NMS classes                   |
-| `dependJeffLib`                 | JeffLib                 | Shaded      | General-purpose library                                       |
-| `dependVault`                   | Vault                   | Soft-Depend | Permissions, Chat & Economy API                               |
-| `dependACF`                     | ACF                     | Shaded      | Command framework                                             |
-| `dependMockBukkit`              | MockBukit               | Test        | Unit testing                                                  |
-| `dependMorePersistentDataTypes` | MorePersistentDataTypes | Shaded      | More PersistentDataTypes + Collections, Maps & Arrays for PDC |
-| `dependCustomBlockData`         | CustomBlockData         | Shaded      | PDC for Blocks                                                |
-| `dependProtocolLib`             | ProtocolLib             | Soft-Depend | Packet sending & listening library                            |
+| Option                          | Dependency                                                                           | Scope       | Description                                                                 |
+|---------------------------------|--------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------|
+| `dependNMS`                     | Spigot (NMS)                                                                         | Provided    | Allows accessing CraftBukit and NMS classes + automatic remapping for 1.17+ |
+| `dependLombok`                  | [Lombok](https://projectlombok.org/)                                                 | Provided    | Annotation-based library to reduce boilerplate code                         |
+| `dependJeffLib`                 | [JeffLib](https://github.com/JEFF-Media-GbR/JeffLib)                                 | Shaded      | General-purpose library                                                     |
+| `dependVault`                   | [Vault](https://github.com/milkbowl/Vault)                                           | Soft-Depend | Permissions, Chat & Economy API                                             |
+| `dependACF`                     | [ACF](https://github.com/aikar/commands)                                             | Shaded      | Command framework                                                           |
+| `dependMockBukkit`              | [MockBukkit](https://github.com/MockBukkit/MockBukkit)                               | Test        | Unit testing                                                                |
+| `dependMorePersistentDataTypes` | [MorePersistentDataTypes](https://github.com/JEFF-Media-GbR/MorePersistentDataTypes) | Shaded      | More PersistentDataTypes + Collections, Maps & Arrays for PDC               |
+| `dependCustomBlockData`         | [CustomBlockData](https://github.com/JEFF-Media-GbR/CustomBlockData)                 | Shaded      | PDC for Blocks                                                              |
+| `dependProtocolLib`             | [ProtocolLib](https://github.com/dmulloy2/ProtocolLib)                               | Soft-Depend | Packet sending & listening library                                          |
+| `dependWorldEdit`               | [WorldEdit](https://worldedit.enginehub.org/en/latest/api/)                          | Soft-Depend | WorldEdit API                                                               |
+| `dependWorldGuard`              | [WorldGuard](https://worldguard.enginehub.org/en/latest/developer/)                  | Soft-Depend | WorldGuard API                                                              |
+| `dependSpigotUpdateChecker`     | [SpigotUpdateChecker](https://github.com/JEFF-Media-GbR/Spigot-UpdateChecker)        | Shaded      | Powerful Update checker library                                             |
 
 <!--
 | Allowed values                          
@@ -103,5 +107,7 @@ mvn archetype:generate -DarchetypeArtifactId=spigot-plugin -DarchetypeGroupId=co
 ```
 
 ## Todo
-- Add SpigotUpdateChecker dependency
-- Add WorldEdit / WorldGuard dependency
+- ~~Add SpigotUpdateChecker dependency~~
+- ~~Add WorldEdit / WorldGuard dependency~~
+- ~~Add ProtocolLib~~
+- ~~Add Lombok~~
