@@ -111,3 +111,4 @@ mvn archetype:generate -DarchetypeArtifactId=spigot-plugin -DarchetypeGroupId=co
 - ~~Add WorldEdit / WorldGuard dependency~~
 - ~~Add ProtocolLib~~
 - ~~Add Lombok~~
+- Add PaperLib
