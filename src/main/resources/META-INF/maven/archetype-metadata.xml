@@ -87,23 +87,23 @@
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="dependCustomBlockData"> <!-- readme -->
+        <requiredProperty key="dependCustomBlockData" name="CustomBlockData" type="dependency" description="PDC for Blocks"> <!-- readme -->
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="dependProtocolLib"> <!-- readme -->
+        <requiredProperty key="dependProtocolLib" name="ProtocolLib" type="dependency" description="ProtocolLib API"> <!-- readme -->
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="dependWorldEdit"> <!-- readme -->
+        <requiredProperty key="dependWorldEdit" name="WorldEdit" type="dependency" description="WorldEdit API"> <!-- readme -->
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="dependWorldGuard"> <!-- readme -->
+        <requiredProperty key="dependWorldGuard" name="WorldGuard" type="dependency" description="WorldGuard API (includes WorldEdit)"> <!-- readme -->
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="dependSpigotUpdateChecker"> <!-- readme -->
+        <requiredProperty key="dependSpigotUpdateChecker" name="SpigotUpdateChecker" description="Powerful Update Checker library"> <!-- readme -->
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
