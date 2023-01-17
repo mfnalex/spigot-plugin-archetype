@@ -43,7 +43,7 @@
 
         <!--  Separator  -->
 
-        <requiredProperty key="spigotVersion" name="spigotVersion" type="text"> <!-- readme -->
+        <requiredProperty key="spigotVersion" name="Spigot Version" type="text"> <!-- readme -->
             <defaultValue>1.19.3</defaultValue>
         </requiredProperty>
 
@@ -55,35 +55,35 @@
             <defaultValue>8</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="pathToTestServer"> <!-- readme -->
+        <requiredProperty key="pathToTestServer" name="Path to Test Server" type="text"> <!-- readme -->
             <defaultValue>C:\mctest\plugins</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="addStaticGetter"> <!-- readme -->
+        <requiredProperty key="addStaticGetter" name="Add static getter to main class" type="checkbox"> <!-- readme -->
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="dependLombok"> <!-- readme -->
+        <requiredProperty key="dependLombok" name="Lombok" type="dependency" description="Annotation-based library to reduce boilerplate code"> <!-- readme -->
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="dependJeffLib"> <!-- readme -->
+        <requiredProperty key="dependJeffLib" name="JeffLib" type="dependency" description="General purpose library including many NMS features"> <!-- readme -->
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="dependVault"> <!-- readme -->
+        <requiredProperty key="dependVault" name="Vault" type="dependency" description="Permissions, Chat and Economy API"> <!-- readme -->
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="dependACF"> <!-- readme -->
+        <requiredProperty key="dependACF" name="ACF" type="dependency" description="Annotation-based command framework"> <!-- readme -->
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="dependMockBukkit"> <!-- readme -->
+        <requiredProperty key="dependMockBukkit" name="MockBukkit" type="dependency" description="Unit Testing"> <!-- readme -->
             <defaultValue>true</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="dependMorePersistentDataTypes"> <!-- readme -->
+        <requiredProperty key="dependMorePersistentDataTypes" name="MorePersistentDataTypes" type="dependency" description="Adds a ton of PersistentDataTypes and allows to use Maps, Arrays and Collections in PDC"> <!-- readme -->
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
