@@ -19,7 +19,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class ${mainClass} extends JavaPlugin {
 #if ($addStaticGetter == "true")
 
-    private static MyPlugin instance;
+    private static ${mainClass} instance;
 #end
 #if ($initBlock == "true")
 
@@ -48,12 +48,12 @@ public class ${mainClass} extends JavaPlugin {
     /**
      * Required for MockBukkit
      */
-    public MyPlugin() {}
+    public ${mainClass}() {}
 
     /**
     * Required for MockBukkit
     */
-    protected MyPlugin(JavaPluginLoader loader, PluginDescriptionFile description, File dataFolder, File file) {
+    protected ${mainClass}(JavaPluginLoader loader, PluginDescriptionFile description, File dataFolder, File file) {
         super(loader, description, dataFolder, file);
     }
 #end
