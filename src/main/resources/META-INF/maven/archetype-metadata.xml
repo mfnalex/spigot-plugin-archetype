@@ -103,7 +103,7 @@
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="dependSpigotUpdateChecker" name="SpigotUpdateChecker" description="Powerful Update Checker library"> <!-- readme -->
+        <requiredProperty key="dependSpigotUpdateChecker" name="SpigotUpdateChecker" type="dependency" description="Powerful Update Checker library"> <!-- readme -->
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
