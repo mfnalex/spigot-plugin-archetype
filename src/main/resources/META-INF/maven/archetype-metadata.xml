@@ -111,7 +111,39 @@
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="dependTasChain" name="TasChain" type="dependency" description="Control Flow framework">
+        <requiredProperty key="dependTaskChain" name="TasChain" type="dependency" description="Control Flow framework">
+            <defaultValue>false</defaultValue>
+        </requiredProperty>
+
+        <requiredProperty key="dependConfigurateGson" name="Configurate-Gson" type="dependency" description="Simple configuration library for JSON using Gson">
+            <defaultValue>false</defaultValue>
+        </requiredProperty>
+
+        <requiredProperty key="dependConfigurateHocon" name="Configurate-HOCON" type="dependency" description="Simple configuration library for HOCON">
+            <defaultValue>false</defaultValue>
+        </requiredProperty>
+
+        <requiredProperty key="dependConfigurateJackson" name="Configurate-Jackson" type="dependency" description="Simple configuration library for JSON using Jackson">
+            <defaultValue>false</defaultValue>
+        </requiredProperty>
+
+        <requiredProperty key="dependConfigurateXml" name="Configurate-XML" type="dependency" description="Simple configuration library for XML">
+            <defaultValue>false</defaultValue>
+        </requiredProperty>
+
+        <requiredProperty key="dependConfigurateYaml" name="Configurate-YAML" type="dependency" description="Simple configuration library for YAML">
+            <defaultValue>false</defaultValue>
+        </requiredProperty>
+
+        <requiredProperty key="dependRecordBuilder" name="RecordBuilder" type="dependency" description="RecordBuilder library (Java 16+)">
+            <defaultValue>false</defaultValue>
+        </requiredProperty>
+
+        <requiredProperty key="dependAdventure" name="Adventure-API" type="dependency" description="Adventure API">
+            <defaultValue>false</defaultValue>
+        </requiredProperty>
+
+        <requiredProperty key="dependMiniMessage" name="MiniMessage" type="dependency" description="MiniMessage API">
             <defaultValue>false</defaultValue>
         </requiredProperty>
 

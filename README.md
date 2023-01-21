@@ -31,6 +31,7 @@ This is a maven archetype ("template project") to quickly create a new Spigot pl
 | `javaVersion`        | The Java version to use, e.g. 8 or 17   | `8`                    |
 | `pathToTestServer`   | The path to your server (optional)      | `C:\mctest\plugins`    |
 | `addStaticGetter`    | Whether to add a static instance getter | `false`                |
+| `useKotlin`          | Whether to use Kotlin instead of Java   | `false`                |
 
 #### Optional dependencies
 
@@ -50,6 +51,16 @@ You can also automatically add the following dependencies. Allowed values are `t
 | `dependWorldEdit`               | [WorldEdit](https://worldedit.enginehub.org/en/latest/api/)                          | Soft-Depend | WorldEdit API                                                               |
 | `dependWorldGuard`              | [WorldGuard](https://worldguard.enginehub.org/en/latest/developer/)                  | Soft-Depend | WorldGuard API                                                              |
 | `dependSpigotUpdateChecker`     | [SpigotUpdateChecker](https://github.com/JEFF-Media-GbR/Spigot-UpdateChecker)        | Shaded      | Powerful Update checker library                                             |
+| `dependTaskChain`               | [TaskChain](https://github.com/aikar/TaskChain)                                      | Shaded      | Control Flow framework                                                      |
+| `dependConfigurateGson`         | [Configurate-Gson](https://github.com/SpongePowered/Configurate/)                    | Shaded      | Simple configuration library for JSON using Gson                            |
+| `dependConfigurateHocon`        | [Configurate-HOCON](https://github.com/SpongePowered/Configurate/)                   | Shaded      | Simple configuration library for HOCON                                      |
+| `dependConfigurateJackson`      | [Configurate-Jackson](https://github.com/SpongePowered/Configurate/)                 | Shaded      | Simple configuration library for JSON using Jackson                         |
+| `dependConfigurateXml`          | [Configurate-XML](https://github.com/SpongePowered/Configurate/)                     | Shaded      | Simple configuration library for XML                                        |
+| `dependConfigurateYaml`         | [Configurate-YAML](https://github.com/SpongePowered/Configurate/)                    | Shaded      | Simple configuration library for YAML                                       |
+| `dependRecordBuilder`           | [RecordBuilder](https://github.com/Randgalt/record-builder)                          | Provided    | RecordBuilder library                                                       |
+| `dependAdventure`               | [Adventure-API](https://docs.adventure.kyori.net/)                                   | Shaded      | Adventure API                                                               |
+| `dependMiniMessage`             | [MiniMessage](https://docs.adventure.kyori.net/minimessage.html)                     | Shaded      | MiniMessage API                                                             |
+
 
 <!--
 | Allowed values                          

@@ -39,6 +39,9 @@
 #set ($addOutdatedWorldGuard = "true")
 #end
 #end
+#if ($dependMiniMessage == "true")
+#set ($addSonatypeOssSnapshots1Repo = "true")
+#end
 #if($minorVersion >= 19)
 #set ($mockBukkitArtifactId = "MockBukkit-v1.19")
 #set ($mockBukkitVersion = "2.144.4")
@@ -175,7 +178,7 @@
                         <!-- JeffLib start -->
                         <relocation>
                             <pattern>com.jeff_media.jefflib</pattern>
-                            <shadedPattern>${dollar}{shadedPackage}.jefflib</shadedPattern>
+                            <shadedPattern>${dollar}{shadedPackage}.com.jeff_media.jefflib</shadedPattern>
                         </relocation>
                         <!-- JeffLib end -->
 #end
@@ -183,11 +186,11 @@
                         <!-- ACF start -->
                         <relocation>
                             <pattern>co.aikar.commands</pattern>
-                            <shadedPattern>${dollar}{shadedPackage}.acf</shadedPattern>
+                            <shadedPattern>${dollar}{shadedPackage}.co.aikar.acf</shadedPattern>
                         </relocation>
                         <relocation>
                             <pattern>co.aikar.locales</pattern>
-                            <shadedPattern>${dollar}{shadedPackage}.locales</shadedPattern>
+                            <shadedPattern>${dollar}{shadedPackage}.co.aikar.locales</shadedPattern>
                         </relocation>
                         <!-- ACF end -->
 #end
@@ -195,7 +198,7 @@
                         <!-- TaskChain start -->
                         <relocation>
                             <pattern>co.aikar.taskchain</pattern>
-                            <shadedPattern>${dollar}{shadedPackage}.taskchain</shadedPattern> <!-- Replace this -->
+                            <shadedPattern>${dollar}{shadedPackage}.co.aikar.taskchain</shadedPattern> <!-- Replace this -->
                         </relocation>
                         <!-- TaskChain end -->
 #end
@@ -203,7 +206,7 @@
                         <!-- MorePersistentDataTypes start -->
                         <relocation>
                             <pattern>com.jeff_media.morepersistentdatatypes</pattern>
-                            <shadedPattern>${dollar}{shadedPackage}.morepersistentdatatypes</shadedPattern>
+                            <shadedPattern>${dollar}{shadedPackage}.com.jeff_media.morepersistentdatatypes</shadedPattern>
                         </relocation>
                         <!-- MorePersistentDataTypes end -->
 #end
@@ -211,7 +214,7 @@
                         <!-- CustomBlockData start -->
                         <relocation>
                             <pattern>com.jeff_media.customblockdata</pattern>
-                            <shadedPattern>${dollar}{shadedPackage}.customblockdata</shadedPattern>
+                            <shadedPattern>${dollar}{shadedPackage}.com.jeff_media.customblockdata</shadedPattern>
                         </relocation>
                         <!-- CustomBlockData end -->
 #end
@@ -219,7 +222,15 @@
                         <!-- SpigotUpdateChecker start -->
                         <relocation>
                             <pattern>com.jeff_media.updatechecker</pattern>
-                            <shadedPattern>${dollar}{shadedPackage}.updatechecker</shadedPattern>
+                            <shadedPattern>${dollar}{shadedPackage}.com.jeff_media.updatechecker</shadedPattern>
+                        </relocation>
+                        <!-- SpigotUpdateChecker end -->
+#end
+#if (${dependConfigurateGson} == "true" or ${dependConfigurateHocon} == "true" or ${dependConfigurateJackson} == "true" or ${dependConfigurateXml} == "true" or ${dependConfigurateYaml} == "true")
+                        <!-- SpigotUpdateChecker start -->
+                        <relocation>
+                            <pattern>org.spongepowered.configurate</pattern>
+                            <shadedPattern>${dollar}{shadedPackage}.org.spongepowered.configurate</shadedPattern>
                         </relocation>
                         <!-- SpigotUpdateChecker end -->
 #end
@@ -328,6 +339,12 @@
             <url>https://maven.enginehub.org/repo/</url>
         </repository>
 #end
+#if ($addSonatypeOssSnapshots1Repo == "true")
+        <repository>
+            <id>sonatype-oss-snapshots1</id>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
+        </repository>
+#end
     </repositories>
 
     <dependencies>
@@ -347,13 +364,37 @@
 #if($remapped == "true")
             <classifier>remapped-mojang</classifier>
 #end
-#end
         </dependency>
+#end
 #if(${useKotlin} == "true")
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-stdlib</artifactId>
             <version>${dollar}{kotlinVersion}</version>
+            <scope>compile</scope>
+        </dependency>
+#end
+#if(${dependRecordBuilder} == "true")
+        <dependency>
+            <groupId>io.soabase.record-builder</groupId>
+            <artifactId>record-builder-processor</artifactId>
+            <version>35</version>
+            <scope>provided</scope>
+        </dependency>
+#end
+#if(${dependAdventure} == "true" or ${dependMiniMessage} == "true")
+        <dependency>
+            <groupId>net.kyori</groupId>
+            <artifactId>adventure-platform-bukkit</artifactId>
+            <version>4.2.0</version>
+            <scope>compile</scope>
+        </dependency>
+#end
+#if(${dependMiniMessage} == "true")
+        <dependency>
+            <groupId>net.kyori</groupId>
+            <artifactId>adventure-text-minimessage</artifactId>
+            <version>4.12.0</version>
             <scope>compile</scope>
         </dependency>
 #end
@@ -450,6 +491,46 @@
             <groupId>com.jeff_media</groupId>
             <artifactId>SpigotUpdateChecker</artifactId>
             <version>3.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+#end
+#if (${dependConfigurateGson} == "true")
+        <dependency>
+            <groupId>org.spongepowered</groupId>
+            <artifactId>configurate-gson</artifactId>
+            <version>4.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+#end
+#if (${dependConfigurateHocon} == "true")
+        <dependency>
+            <groupId>org.spongepowered</groupId>
+            <artifactId>configurate-hocon</artifactId>
+            <version>4.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+#end
+#if (${dependConfigurateJackson} == "true")
+        <dependency>
+            <groupId>org.spongepowered</groupId>
+            <artifactId>configurate-jackson</artifactId>
+            <version>4.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+#end
+#if (${dependConfigurateXml} == "true")
+        <dependency>
+            <groupId>org.spongepowered</groupId>
+            <artifactId>configurate-xml</artifactId>
+            <version>4.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+#end
+#if (${dependConfigurateYaml} == "true")
+        <dependency>
+            <groupId>org.spongepowered</groupId>
+            <artifactId>configurate-yaml</artifactId>
+            <version>4.0.0</version>
             <scope>compile</scope>
         </dependency>
 #end
