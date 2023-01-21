@@ -40,7 +40,7 @@ You can also automatically add the following dependencies. Allowed values are `t
 | Option                          | Dependency                                                                           | Scope       | Description                                                                 |
 |---------------------------------|--------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------|
 | `dependNMS`                     | Spigot (NMS)                                                                         | Provided    | Allows accessing CraftBukit and NMS classes + automatic remapping for 1.17+ |
-| `dependLombok`                  | [Lombok](https://projectlombok.org/)                                                 | Provided    | Annotation-based library to reduce boilerplate code                         |
+| `dependLombok`                  | [Lombok](https://projectlombok.org/)                                                 | Annotation  | Annotation-based library to reduce boilerplate code                         |
 | `dependJeffLib`                 | [JeffLib](https://github.com/JEFF-Media-GbR/JeffLib)                                 | Shaded      | General-purpose library                                                     |
 | `dependVault`                   | [Vault](https://github.com/milkbowl/Vault)                                           | Soft-Depend | Permissions, Chat & Economy API                                             |
 | `dependACF`                     | [ACF](https://github.com/aikar/commands)                                             | Shaded      | Command framework                                                           |
@@ -49,7 +49,7 @@ You can also automatically add the following dependencies. Allowed values are `t
 | `dependCustomBlockData`         | [CustomBlockData](https://github.com/JEFF-Media-GbR/CustomBlockData)                 | Shaded      | PDC for Blocks                                                              |
 | `dependProtocolLib`             | [ProtocolLib](https://github.com/dmulloy2/ProtocolLib)                               | Soft-Depend | Packet sending & listening library                                          |
 | `dependWorldEdit`               | [WorldEdit](https://worldedit.enginehub.org/en/latest/api/)                          | Soft-Depend | WorldEdit API                                                               |
-| `dependWorldGuard`              | [WorldGuard](https://worldguard.enginehub.org/en/latest/developer/)                  | Soft-Depend | WorldGuard API                                                              |
+| `dependWorldGuard`              | [WorldGuard](https://worldguard.enginehub.org/en/latest/developer/)                  | Soft-Depend | WorldGuard API (includes WorldEdit API)                                     |
 | `dependSpigotUpdateChecker`     | [SpigotUpdateChecker](https://github.com/JEFF-Media-GbR/Spigot-UpdateChecker)        | Shaded      | Powerful Update checker library                                             |
 | `dependTaskChain`               | [TaskChain](https://github.com/aikar/TaskChain)                                      | Shaded      | Control Flow framework                                                      |
 | `dependConfigurateGson`         | [Configurate-Gson](https://github.com/SpongePowered/Configurate/)                    | Shaded      | Simple configuration library for JSON using Gson                            |
@@ -57,9 +57,9 @@ You can also automatically add the following dependencies. Allowed values are `t
 | `dependConfigurateJackson`      | [Configurate-Jackson](https://github.com/SpongePowered/Configurate/)                 | Shaded      | Simple configuration library for JSON using Jackson                         |
 | `dependConfigurateXml`          | [Configurate-XML](https://github.com/SpongePowered/Configurate/)                     | Shaded      | Simple configuration library for XML                                        |
 | `dependConfigurateYaml`         | [Configurate-YAML](https://github.com/SpongePowered/Configurate/)                    | Shaded      | Simple configuration library for YAML                                       |
-| `dependRecordBuilder`           | [RecordBuilder](https://github.com/Randgalt/record-builder)                          | Provided    | RecordBuilder library                                                       |
+| `dependRecordBuilder`           | [RecordBuilder](https://github.com/Randgalt/record-builder)                          | Annotation  | RecordBuilder library                                                       |
 | `dependAdventure`               | [Adventure-API](https://docs.adventure.kyori.net/)                                   | Shaded      | Adventure API                                                               |
-| `dependMiniMessage`             | [MiniMessage](https://docs.adventure.kyori.net/minimessage.html)                     | Shaded      | MiniMessage API                                                             |
+| `dependMiniMessage`             | [MiniMessage](https://docs.adventure.kyori.net/minimessage.html)                     | Shaded      | MiniMessage API (includes Adventure API)                                    |
 
 
 <!--
