@@ -63,6 +63,10 @@
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
+        <requiredProperty key="useKotlin" name="Use Kotlin instead of Java" type="checkbox"> <!-- readme -->
+            <defaultValue>false</defaultValue>
+        </requiredProperty>
+
         <requiredProperty key="dependLombok" name="Lombok" type="dependency" description="Annotation-based library to reduce boilerplate code"> <!-- readme -->
             <defaultValue>false</defaultValue>
         </requiredProperty>
@@ -107,6 +111,10 @@
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
+        <requiredProperty key="dependTasChain" name="TasChain" type="dependency" description="Control Flow framework">
+            <defaultValue>false</defaultValue>
+        </requiredProperty>
+
     </requiredProperties>
 
     <fileSets>
@@ -124,6 +132,12 @@
         </fileSet>
         <fileSet encoding="UTF-8" filtered="true" packaged="true">
             <directory>src/test/java</directory>
+            <includes>
+                <include>**/*</include>
+            </includes>
+        </fileSet>
+        <fileSet encoding="UTF-8" filtered="true" packaged="true">
+            <directory>src/main/kotlin</directory>
             <includes>
                 <include>**/*</include>
             </includes>

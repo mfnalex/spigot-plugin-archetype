@@ -16,7 +16,7 @@
 #if (${dependVault} == "true")
 #set ($addJitpackRepo = "true")
 #end
-#if(${dependACF} == "true")
+#if(${dependACF} == "true" or ${dependTaskChain} == "true")
 #set ($addAikarRepo = "true")
 #end
 #if(${dependProtocolLib} == "true")
@@ -79,6 +79,9 @@
     <properties>
         <spigotVersion>${spigotVersion}</spigotVersion>
         <javaVersion>${javaVersion}</javaVersion>
+#if (${useKotlin} == "true")
+        <kotlinVersion>1.8.0</kotlinVersion>
+#end
         <testServerPath>${pathToTestServer}</testServerPath>
         <shadedPackage>${package}.shaded</shadedPackage>
 
@@ -120,6 +123,39 @@
 #end
                 </configuration>
             </plugin>
+#if (${useKotlin} == "true")
+            <plugin>
+                <groupId>org.jetbrains.kotlin</groupId>
+                <artifactId>kotlin-maven-plugin</artifactId>
+                <version>1.8.0</version>
+                <executions>
+                    <execution>
+                        <id>compile</id>
+                        <phase>process-sources</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                        <configuration>
+                            <sourceDirs>
+                                <source>src/main/kotlin</source>
+                            </sourceDirs>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>test-compile</id>
+                        <phase>process-test-sources</phase>
+                        <goals>
+                            <goal>test-compile</goal>
+                        </goals>
+                        <configuration>
+                            <sourceDirs>
+                                <source>src/test/kotlin</source>
+                            </sourceDirs>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+#end
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -154,6 +190,14 @@
                             <shadedPattern>${dollar}{shadedPackage}.locales</shadedPattern>
                         </relocation>
                         <!-- ACF end -->
+#end
+#if (${dependTaskChain} == "true")
+                        <!-- TaskChain start -->
+                        <relocation>
+                            <pattern>co.aikar.taskchain</pattern>
+                            <shadedPattern>${dollar}{shadedPackage}.taskchain</shadedPattern> <!-- Replace this -->
+                        </relocation>
+                        <!-- TaskChain end -->
 #end
 #if (${dependMorePersistentDataTypes} == "true")
                         <!-- MorePersistentDataTypes start -->
@@ -303,6 +347,22 @@
 #if($remapped == "true")
             <classifier>remapped-mojang</classifier>
 #end
+#end
+        </dependency>
+#if(${useKotlin} == "true")
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-stdlib</artifactId>
+            <version>${dollar}{kotlinVersion}</version>
+            <scope>compile</scope>
+        </dependency>
+#end
+#if(${dependTaskChain} == "true")
+        <dependency>
+            <groupId>co.aikar</groupId>
+            <artifactId>taskchain-bukkit</artifactId>
+            <version>3.7.3-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
 #end
 #if (${dependLombok} == "true")

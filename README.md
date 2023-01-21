@@ -102,8 +102,14 @@ Then, you can create a new project using the archetype, either through your IDE 
 
 #### From Command line
 
+You can either declare all properties that you want to change:
 ```shell
 mvn archetype:generate -DarchetypeArtifactId=spigot-plugin -DarchetypeGroupId=com.jeff_media -DarchetypeVersion=1.0.0-SNAPSHOT -D<option>=<value> ...
+```
+
+Or you can use the interactive mode and make maven ask you for each property:
+```shell
+mvn archetype:generate -DarchetypeArtifactId=spigot-plugin -DarchetypeGroupId=com.jeff_media -DarchetypeVersion=1.0.0-SNAPSHOT
 ```
 
 ## Todo
