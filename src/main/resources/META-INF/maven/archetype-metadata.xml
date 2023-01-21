@@ -67,83 +67,83 @@
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="dependLombok" name="Lombok" type="dependency" description="Annotation-based library to reduce boilerplate code"> <!-- readme -->
+        <requiredProperty key="dependLombok" name="Lombok" type="dependency" description="Annotation-based library to reduce boilerplate code" url="https://projectlombok.org/" scope="annotation"> <!-- readme -->
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="dependJeffLib" name="JeffLib" type="dependency" description="General purpose library including many NMS features"> <!-- readme -->
+        <requiredProperty key="dependJeffLib" name="JeffLib" type="dependency" description="General purpose library including many NMS features" url="https://github.com/JEFF-Media-GbR/JeffLib" scope="shaded"> <!-- readme -->
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="dependVault" name="Vault" type="dependency" description="Permissions, Chat and Economy API"> <!-- readme -->
+        <requiredProperty key="dependVault" name="Vault" type="dependency" description="Permissions, Chat and Economy API" url="https://github.com/milkbowl/Vault" scope="soft-depend"> <!-- readme -->
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="dependACF" name="ACF" type="dependency" description="Annotation-based command framework"> <!-- readme -->
+        <requiredProperty key="dependACF" name="ACF" type="dependency" description="Annotation-based command framework" url="https://github.com/aikar/commands" scope="shaded"> <!-- readme -->
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="dependMockBukkit" name="MockBukkit" type="dependency" description="Unit Testing"> <!-- readme -->
+        <requiredProperty key="dependMockBukkit" name="MockBukkit" type="dependency" description="Unit Testing" url="https://github.com/MockBukkit/MockBukkit" scope="test"> <!-- readme -->
             <defaultValue>true</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="dependMorePersistentDataTypes" name="MorePersistentDataTypes" type="dependency" description="Adds a ton of PersistentDataTypes and allows to use Maps, Arrays and Collections in PDC"> <!-- readme -->
+        <requiredProperty key="dependMorePersistentDataTypes" name="MorePersistentDataTypes" type="dependency" description="More PersistentDataTypes + Maps, Arrays &amp; Collections for PDC" url="https://github.com/JEFF-Media-GbR/MorePersistentDataTypes" scope="shaded"> <!-- readme -->
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="dependCustomBlockData" name="CustomBlockData" type="dependency" description="PDC for Blocks"> <!-- readme -->
+        <requiredProperty key="dependCustomBlockData" name="CustomBlockData" type="dependency" description="PDC for Blocks" url="https://github.com/JEFF-Media-GbR/CustomBlockData" scope="shaded"> <!-- readme -->
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="dependProtocolLib" name="ProtocolLib" type="dependency" description="ProtocolLib API"> <!-- readme -->
+        <requiredProperty key="dependProtocolLib" name="ProtocolLib" type="dependency" description="ProtocolLib API" url="https://github.com/dmulloy2/ProtocolLib" scope="soft-depend"> <!-- readme -->
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="dependWorldEdit" name="WorldEdit" type="dependency" description="WorldEdit API"> <!-- readme -->
+        <requiredProperty key="dependWorldEdit" name="WorldEdit" type="dependency" description="WorldEdit API" url="https://worldedit.enginehub.org/en/latest/api/" scope="soft-depend"> <!-- readme -->
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="dependWorldGuard" name="WorldGuard" type="dependency" description="WorldGuard API (includes WorldEdit)"> <!-- readme -->
+        <requiredProperty key="dependWorldGuard" name="WorldGuard" type="dependency" description="WorldGuard API (includes WorldEdit API)" url="https://worldguard.enginehub.org/en/latest/developer/" scope="soft-depend"> <!-- readme -->
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="dependSpigotUpdateChecker" name="SpigotUpdateChecker" type="dependency" description="Powerful Update Checker library"> <!-- readme -->
+        <requiredProperty key="dependSpigotUpdateChecker" name="SpigotUpdateChecker" type="dependency" description="Powerful Update Checker library" url="https://github.com/JEFF-Media-GbR/Spigot-UpdateChecker" scope="shaded"> <!-- readme -->
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="dependTaskChain" name="TaskChain" type="dependency" description="Control Flow framework">
+        <requiredProperty key="dependTaskChain" name="TaskChain" type="dependency" description="Control Flow framework" url="https://github.com/aikar/TaskChain" scope="shaded">
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="dependConfigurateGson" name="Configurate-Gson" type="dependency" description="Simple configuration library for JSON using Gson">
+        <requiredProperty key="dependConfigurateGson" name="Configurate-Gson" type="dependency" description="Simple configuration library for JSON using Gson" url="https://github.com/SpongePowered/Configurate/" scope="shaded">
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="dependConfigurateHocon" name="Configurate-HOCON" type="dependency" description="Simple configuration library for HOCON">
+        <requiredProperty key="dependConfigurateHocon" name="Configurate-HOCON" type="dependency" description="Simple configuration library for HOCON" url="https://github.com/SpongePowered/Configurate/" scope="shaded">
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="dependConfigurateJackson" name="Configurate-Jackson" type="dependency" description="Simple configuration library for JSON using Jackson">
+        <requiredProperty key="dependConfigurateJackson" name="Configurate-Jackson" type="dependency" description="Simple configuration library for JSON using Jackson" url="https://github.com/SpongePowered/Configurate/" scope="shaded">
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="dependConfigurateXml" name="Configurate-XML" type="dependency" description="Simple configuration library for XML">
+        <requiredProperty key="dependConfigurateXml" name="Configurate-XML" type="dependency" description="Simple configuration library for XML" url="https://github.com/SpongePowered/Configurate/" scope="shaded">
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="dependConfigurateYaml" name="Configurate-YAML" type="dependency" description="Simple configuration library for YAML">
+        <requiredProperty key="dependConfigurateYaml" name="Configurate-YAML" type="dependency" description="Simple configuration library for YAML" url="https://github.com/SpongePowered/Configurate/" scope="shaded">
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="dependRecordBuilder" name="RecordBuilder" type="dependency" description="RecordBuilder library (Java 16+)">
+        <requiredProperty key="dependRecordBuilder" name="RecordBuilder" type="dependency" description="RecordBuilder library (Java 16+)" url="https://github.com/Randgalt/record-builder" scope="annotation">
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="dependAdventure" name="Adventure-API" type="dependency" description="Adventure API">
+        <requiredProperty key="dependAdventure" name="Adventure-API" type="dependency" description="Adventure API" url="https://docs.adventure.kyori.net/" scope="shaded">
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="dependMiniMessage" name="MiniMessage" type="dependency" description="MiniMessage API">
+        <requiredProperty key="dependMiniMessage" name="MiniMessage" type="dependency" description="MiniMessage API (includes Adventure API)" url="https://docs.adventure.kyori.net/minimessage.html" scope="shaded">
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
