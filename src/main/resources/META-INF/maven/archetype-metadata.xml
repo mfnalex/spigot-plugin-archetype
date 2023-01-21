@@ -111,7 +111,7 @@
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="dependTaskChain" name="TasChain" type="dependency" description="Control Flow framework">
+        <requiredProperty key="dependTaskChain" name="TaskChain" type="dependency" description="Control Flow framework">
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
