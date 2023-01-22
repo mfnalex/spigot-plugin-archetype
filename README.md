@@ -60,6 +60,7 @@ You can also automatically add the following dependencies. Allowed values are `t
 | `dependRecordBuilder`           | [RecordBuilder](https://github.com/Randgalt/record-builder)                          | Annotation  | RecordBuilder library                                                       |
 | `dependAdventure`               | [Adventure-API](https://docs.adventure.kyori.net/)                                   | Shaded      | Adventure API                                                               |
 | `dependMiniMessage`             | [MiniMessage](https://docs.adventure.kyori.net/minimessage.html)                     | Shaded      | MiniMessage API (includes Adventure API)                                    |
+| `dependInventoryFramework`      | [IF (InventoryFramework)](https://github.com/stefvanschie/IF/)                       | Shaded      | GUI library                                                                 |
 
 
 <!--

@@ -147,6 +147,10 @@
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
+        <requiredProperty key="dependInventoryFramework" name="IF (InventoryFramework)" type="dependency" description="GUI library" url="https://github.com/stefvanschie/IF/" scope="shaded">
+            <defaultValue>false</defaultValue>
+        </requiredProperty>
+
     </requiredProperties>
 
     <fileSets>
