@@ -83,8 +83,8 @@
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="dependMockBukkit" name="MockBukkit" type="dependency" description="Unit Testing" url="https://github.com/MockBukkit/MockBukkit" scope="test"> <!-- readme -->
-            <defaultValue>true</defaultValue>
+        <requiredProperty key="dependMockBukkit" name="MockBukkit" type="dependency" description="Unit Testing. Automatically creates an example test, too" url="https://github.com/MockBukkit/MockBukkit" scope="test"> <!-- readme -->
+            <defaultValue>false</defaultValue>
         </requiredProperty>
 
         <requiredProperty key="dependMorePersistentDataTypes" name="MorePersistentDataTypes" type="dependency" description="More PersistentDataTypes + Maps, Arrays &amp; Collections for PDC" url="https://github.com/JEFF-Media-GbR/MorePersistentDataTypes" scope="shaded"> <!-- readme -->
