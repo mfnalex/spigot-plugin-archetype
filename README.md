@@ -90,9 +90,9 @@ You can also automatically add the following dependencies. Allowed values are `t
 
 You can use the [Spigot-Plugin-Generator](https://github.com/JEFF-Media-GbR/Spigot-Plugin-Generator) to use this archetype without having to install it locally. Simply download the Spigot-Plugin-Generator from the releases page and run it. It will automatically download the latest version of this archetype.
 
-![img.png](screenshots/img.png)
-![img2.png](screenshots/img2.png)
-![img3.png](screenshots/img3.png)
+![img.png](img/img.png)
+![img2.png](img/img2.png)
+![img3.png](img/img3.png)
 
 ## Usage (Advanced)
 
