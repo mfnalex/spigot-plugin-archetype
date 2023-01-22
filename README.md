@@ -86,7 +86,15 @@ You can also automatically add the following dependencies. Allowed values are `t
 | `true` or `false`                       
 -->
 
-## Usage
+## Usage (Spigot-Plugin-Generator)
+
+You can use the [Spigot-Plugin-Generator](https://github.com/JEFF-Media-GbR/Spigot-Plugin-Generator) to use this archetype without having to install it locally. Simply download the Spigot-Plugin-Generator from the releases page and run it. It will automatically download the latest version of this archetype.
+
+![img.png](screenshots/img.png)
+![img2.png](screenshots/img2.png)
+![img3.png](screenshots/img3.png)
+
+## Usage (Advanced)
 
 You simply have to clone this repo, then `mvn install` it. After that, you can use the archetype to create a new
 project.
