@@ -151,9 +151,10 @@
             <defaultValue>false</defaultValue>
         </requiredProperty>
 
-        <requiredProperty key="dependCirrus" name="Cirrus" type="dependency" description="Cirrus Library" url="https://github.com/Simplix-Softworks/Cirrus" scope="shaded">
+        <requiredProperty key="dependCirrus" name="Cirrus" type="dependency" description="Cirrus GUI library" url="https://github.com/Simplix-Softworks/Cirrus" scope="shaded">
             <defaultValue>false</defaultValue>
         </requiredProperty>
+
         </requiredProperties>
 
     <fileSets>
