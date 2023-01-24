@@ -70,6 +70,9 @@
 #if(${dependMockBukkit} == "true")
 #set ($addPaperRepo = "true")
 #end
+#if(${dependCirrus} == "true")
+
+
 
     <modelVersion>4.0.0</modelVersion>
 
@@ -351,6 +354,16 @@
             <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
         </repository>
 #end
+#if ($addCirrus == "true")
+        <repository>
+            <id>simplixsoft-public</id>
+            <url>https://repo.simplix.dev/repository/simplixsoft-public/</url>
+        </repository>
+        <repository>
+            <id>exceptionflug</id>
+            <url>https://mvn.exceptionflug.de/repository/exceptionflug-public/</url>
+        </repository>
+#end
     </repositories>
 
     <dependencies>
@@ -568,6 +581,18 @@
             <scope>test</scope>
         </dependency>
         <!-- MockBukkit end -->
+#end
+#if (${dependCirrus} == "true")
+        <dependency>
+            <groupId>dev.simplix.cirrus</groupId>
+            <artifactId>cirrus-spigot</artifactId>
+            <version>2.0.0</version>
+            ´</dependency>
+        <dependency>
+            <groupId>dev.simplix</groupId>
+            <artifactId>protocolize-api</artifactId>
+            <version>2.1.0</version>
+        </dependency>
 #end
     </dependencies>
 
