@@ -61,7 +61,7 @@ You can also automatically add the following dependencies. Allowed values are `t
 | `dependAdventure`               | [Adventure-API](https://docs.adventure.kyori.net/)                                   | Shaded      | Adventure API                                                               |
 | `dependMiniMessage`             | [MiniMessage](https://docs.adventure.kyori.net/minimessage.html)                     | Shaded      | MiniMessage API (includes Adventure API)                                    |
 | `dependInventoryFramework`      | [IF (InventoryFramework)](https://github.com/stefvanschie/IF/)                       | Shaded      | GUI library                                                                 |
-
+| `dependCirrus`                  | [Cirrus](https://github.com/Simplix-Softworks/Cirrus)                                | Shaded      | GUI library                                                                 |
 
 <!--
 | Allowed values                          
@@ -97,8 +97,7 @@ You can use the [Spigot-Plugin-Generator](https://github.com/JEFF-Media-GbR/Spig
 
 ## Usage (Advanced)
 
-You simply have to clone this repo, then `mvn install` it. After that, you can use the archetype to create a new
-project.
+You simply have to clone this repo, then `mvn install` it.
 
 ```shell
 git clone https://github.com/JEFF-Media-GbR/maven-spigot-plugin
@@ -124,12 +123,20 @@ Then, you can create a new project using the archetype, either through your IDE 
 
 You can either declare all properties that you want to change:
 ```shell
-mvn archetype:generate -DarchetypeArtifactId=spigot-plugin -DarchetypeGroupId=com.jeff_media -DarchetypeVersion=1.0.0-SNAPSHOT -D<option>=<value> ...
+mvn archetype:generate \
+  -DarchetypeArtifactId=spigot-plugin \
+  -DarchetypeGroupId=com.jeff_media \
+  -DarchetypeVersion=1.0.0-SNAPSHOT \
+  -D<option>=<value> ...
 ```
 
 Or you can use the interactive mode and make maven ask you for each property:
 ```shell
-mvn archetype:generate -DarchetypeArtifactId=spigot-plugin -DarchetypeGroupId=com.jeff_media -DarchetypeVersion=1.0.0-SNAPSHOT
+mvn archetype:generate \
+  -DaskForDefaultPropertyValues=true \
+  -DarchetypeArtifactId=spigot-plugin \
+  -DarchetypeGroupId=com.jeff_media \
+  -DarchetypeVersion=1.0.0-SNAPSHOT
 ```
 
 ## Todo

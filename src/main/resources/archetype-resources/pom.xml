@@ -245,6 +245,16 @@
                             <shadedPattern>${dollar}{shadedPackage}.inventoryframework</shadedPattern>
                         </relocation>
 #end
+#if (${dependCirrus} == "true")
+                        <relocation>
+                            <pattern>dev.simplix</pattern>
+                            <shadedPattern>${dollar}{shadedPackage}.dev.simplix</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>net.querz</pattern>
+                            <shadedPattern>${dollar}{shadedPackage}.net.querz</shadedPattern>
+                        </relocation>
+#end
                     </relocations>
                     <filters>
 #if (${dependJeffLib} == "true")
