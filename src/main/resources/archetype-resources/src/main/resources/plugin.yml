@@ -1,0 +1,25 @@
+#set ($hasSoftDepends = "false")
+#if ($dependVault == "true" or $dependProtocolLib)
+  #set ($hasSoftDepends = "true")
+#end
+name: ${pluginName}
+version: ${project.version}
+main: ${package}.${mainClass}
+author: ${author}
+api-version: "1.13"
+load: POSTWORLD
+#if ($hasSoftDepends == "true")
+softdepend:
+#if ($dependVault == "true")
+- Vault
+#end
+#if ($dependProtocolLib == "true")
+- ProtocolLib
+#end
+#if ($dependWorldEdit == "true")
+- WorldEdit
+#end
+#if ($dependWorldGuard == "true")
+- WorldGuard
+#end
+#end
